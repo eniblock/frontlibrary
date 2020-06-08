@@ -1,0 +1,7 @@
+{
+  "bundlerOptions": {
+    "entryFile": "./projects/xdev-lib/src/lib/test-lib.theme.scss",
+    "rootDir": "./projects/xdev-lib/",
+    "outFile": "./dist/xdev-lib/test-lib.theme.scss"
+  }
+}

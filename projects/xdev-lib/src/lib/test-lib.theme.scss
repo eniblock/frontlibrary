@@ -1,0 +1,16 @@
+
+@mixin test-lib-theme($test-app-theme) {
+  @include test-component-theme($test-app-theme);
+}
+
+@mixin test-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  .test {
+    background: mat-color($primary);
+  }
+  .test1 {
+    background: orange;
+  }
+  .square {
+  }
+}

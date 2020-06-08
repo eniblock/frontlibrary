@@ -1,0 +1,10 @@
+#rss-item {
+  .content {
+    height: 150px;
+    overflow: hidden;
+    .info-item {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}

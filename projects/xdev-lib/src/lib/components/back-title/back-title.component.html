@@ -1,0 +1,16 @@
+<div id="back-title">
+    <button mat-icon-button class="mr-0 mr-sm-16">
+        <mat-icon [routerLink]="link">
+            arrow_back
+        </mat-icon>
+    </button>
+    <div>
+        <div class="h2 content">
+            {{description}}
+        </div>
+        <div class="subtitle secondary-text">
+            {{titleSection}}
+        </div>
+    </div>
+    <ng-content></ng-content>
+</div>

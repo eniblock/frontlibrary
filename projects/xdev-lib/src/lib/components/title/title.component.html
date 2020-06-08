@@ -1,0 +1,12 @@
+<div class="title">
+    <div class="logo mb-16 mb-sm-0" fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="logo-icon" *ngIf="!svgIcon">
+            {{icon}}
+        </mat-icon>
+        <mat-icon class="logo-icon" *ngIf="svgIcon" [svgIcon]="icon">
+        </mat-icon>
+        <h1 class="logo-text">
+            <ng-content></ng-content>
+        </h1>
+    </div>
+</div>

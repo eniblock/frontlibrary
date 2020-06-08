@@ -1,0 +1,24 @@
+<div id="card-value-list">
+    <mat-card *ngIf="data">
+        <div *ngFor="let item of data" class="item">
+            <h1 class="secondary-text mr-12 ml-12">{{item.label}}</h1>
+            <div class="value mr-12 ml-12">
+                <ng-container [ngSwitch]="typeOf(item.value)">
+                    <h1 class="m-0 accent-500-fg" *ngSwitchCase="'number'">
+                        {{item.value !== null ? (item.value | number) : '-'}}
+                    </h1>
+                    <h1 class="m-0 accent-500-fg" *ngSwitchDefault>
+                        {{item.value !== null ? item.value : '-'}}
+                    </h1>
+                </ng-container>
+
+                <div class="unit" *ngIf="item.unit">{{item.unit}}</div>
+                <mat-icon [inline]="true" class="unit" *ngIf="item.icon && !item.unit">
+                    {{item.icon}}
+                </mat-icon>
+
+            </div>
+            <hr class="mr-12 ml-12 mb-24" *ngIf="item !== data[data.length - 1]">
+        </div>
+    </mat-card>
+</div>

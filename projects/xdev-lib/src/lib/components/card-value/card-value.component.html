@@ -1,0 +1,16 @@
+<div id="card-value">
+    <div class="balance-container">
+        <button mat-icon-button class="refresh" (click)="refresh()" *ngIf="refresh">
+            <mat-icon>
+                refresh
+            </mat-icon>
+        </button>
+            <mat-card class="accent">
+                <h1 class="mr-12 ml-12">{{cardTitle}}</h1>
+                <div class="value mr-12 ml-12">
+                    <h1 class="m-0">{{value !== null ? (value | number) : '-'}} {{description || ''}}</h1>
+                    <div class="unit">{{unit}}</div>
+                </div>
+            </mat-card>
+    </div>
+</div>

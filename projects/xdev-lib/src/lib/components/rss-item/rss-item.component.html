@@ -1,0 +1,13 @@
+<a [href]="rssItem.link[0]" target="_blank" *ngIf="rssItem">
+    <mat-card id="rss-item">
+        <div class="content">
+            <h2>{{rssItem.title[0]}}</h2>
+            <div class="info-item">
+                <mat-icon class="secondary-text mr-12">alarm</mat-icon>
+                <div>{{rssItem.pubDate[0] | date: 'dd/MM/yyyy'}}</div>
+            </div>
+            <div [innerHTML]="extractContent(rssItem.description[0])" class="mt-12"></div>
+        </div>
+    </mat-card>
+</a>
+
