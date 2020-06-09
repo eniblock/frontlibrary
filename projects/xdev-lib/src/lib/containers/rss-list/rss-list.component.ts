@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NewsRss} from '../../../../../models/interfaces/rss';
+import {NewsRss} from '../../../models/interfaces/rss';
 
 @Component({
   selector: 'app-rss-list',
