@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
     "xdev-lib": {
@@ -39,131 +39,6 @@
             "exclude": [
               "**/node_modules/**"
             ]
-          }
-        }
-      }
-    },
-    "xdev-app": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/xdev-app",
-      "sourceRoot": "projects/xdev-app/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "stylePreprocessorOptions": {
-              "includePaths": ["projects/shared-styles", "dist"]
-            },
-            "outputPath": "dist/xdev-app",
-            "index": "projects/xdev-app/src/index.html",
-            "main": "projects/xdev-app/src/main.ts",
-            "polyfills": "projects/xdev-app/src/polyfills.ts",
-            "tsConfig": "projects/xdev-app/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "projects/xdev-app/src/favicon.ico",
-              "projects/xdev-app/src/assets"
-            ],
-            "styles": [
-              "projects/xdev-app/src/theme.scss",
-              "projects/xdev-app/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/xdev-app/src/environments/environment.ts",
-                  "with": "projects/xdev-app/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "xdev-app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "xdev-app:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "xdev-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/xdev-app/src/test.ts",
-            "polyfills": "projects/xdev-app/src/polyfills.ts",
-            "tsConfig": "projects/xdev-app/tsconfig.spec.json",
-            "karmaConfig": "projects/xdev-app/karma.conf.js",
-            "assets": [
-              "projects/xdev-app/src/favicon.ico",
-              "projects/xdev-app/src/assets"
-            ],
-            "styles": [
-              "projects/xdev-app/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/xdev-app/tsconfig.app.json",
-              "projects/xdev-app/tsconfig.spec.json",
-              "projects/xdev-app/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/xdev-app/e2e/protractor.conf.js",
-            "devServerTarget": "xdev-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "xdev-app:serve:production"
-            }
           }
         }
       }

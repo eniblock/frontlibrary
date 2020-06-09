@@ -8,7 +8,7 @@ export interface CardValueData {
 }
 
 @Component({
-  selector: 'app-card-value-list',
+  selector: 'lib-card-value-list',
   templateUrl: './card-value-list.component.html',
   styleUrls: ['./card-value-list.component.scss']
 })

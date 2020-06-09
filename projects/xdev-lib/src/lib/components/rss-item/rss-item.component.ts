@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IRssItem} from '../../../../../models/interfaces/rss';
+import {IRssItem} from '../../../models/interfaces/rss';
 
 @Component({
-  selector: 'app-rss-item',
+  selector: 'lib-rss-item',
   templateUrl: './rss-item.component.html',
   styleUrls: ['./rss-item.component.scss']
 })

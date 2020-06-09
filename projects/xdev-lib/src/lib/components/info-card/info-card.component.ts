@@ -6,7 +6,7 @@ export interface InfoData {
 }
 
 @Component({
-  selector: 'app-info-card',
+  selector: 'lib-info-card',
   templateUrl: './info-card.component.html',
   styleUrls: ['./info-card.component.scss']
 })

@@ -1,0 +1,5 @@
+export enum OperationNature {
+    PRIMARY_MARKET = 'PRIMARY_MARKET',
+    SECONDARY_MARKET = 'SECONDARY_MARKET',
+    RECOVERY = 'RECOVERY'
+}

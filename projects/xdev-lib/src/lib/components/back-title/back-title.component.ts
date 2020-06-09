@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-back-title',
+  selector: 'lib-back-title',
   templateUrl: './back-title.component.html',
   styleUrls: ['./back-title.component.scss']
 })
