@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'lib-card-value',
+  selector: 'app-card-value',
   templateUrl: './card-value.component.html',
   styleUrls: ['./card-value.component.scss']
 })

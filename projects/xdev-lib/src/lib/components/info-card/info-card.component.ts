@@ -3,10 +3,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export interface InfoData {
   label: string;
   value: any;
+  type?: string;
+  link?: string;
 }
 
 @Component({
-  selector: 'lib-info-card',
+  selector: 'app-info-card',
   templateUrl: './info-card.component.html',
   styleUrls: ['./info-card.component.scss']
 })
@@ -14,6 +16,7 @@ export class InfoCardComponent implements OnInit {
 
   @Input() data: InfoData[];
   @Input() title: string;
+
 
   constructor() { }
 

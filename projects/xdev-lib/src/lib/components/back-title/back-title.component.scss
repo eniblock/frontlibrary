@@ -3,6 +3,9 @@
   align-items: center;
   .content {
     white-space: nowrap;
+    .pending {
+      cursor: pointer;
+    }
   }
   .subtitle {
     margin: 6px 0 0 0;

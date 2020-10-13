@@ -2,7 +2,10 @@
     <ng-container *ngFor="let item of data">
         <div class="row mt-16" >
             <div class="secondary-text">{{item.label}}</div>
-            <div>{{item.value}}</div>
+            <div *ngIf="item.type === 'date'" class="value">{{item.value ? (item.value | date : 'dd/MM/yyyy') : '-'}}</div>
+            <div *ngIf="item.type === 'number'" class="value">{{item.value ? (item.value | number:'':'fr-FR') : '-'}}</div>
+            <div *ngIf="item.type === 'money'" class="value">{{item.value ? (item.value | currency: 'EUR': 'symbol') : '-'}}</div>
+            <div *ngIf="!item.type" class="value">{{item.value ? item.value : '-'}}</div>
         </div>
         <hr class="separator" *ngIf="item !== data[data.length - 1]">
     </ng-container>

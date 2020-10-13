@@ -1,20 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'lib-back-title',
+  selector: 'app-back-title',
   templateUrl: './back-title.component.html',
   styleUrls: ['./back-title.component.scss']
 })
-export class BackTitleComponent implements OnInit {
+export class BackTitleComponent {
 
   @Input() titleSection: string;
   @Input() description: string;
+  @Input() bckDescription?: string;
+  @Input() pendingValue?: string;
   @Input() link: string;
 
+  constructor(private _location: Location) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public historyBack(): void {
+    this._location.back();
   }
 
 }

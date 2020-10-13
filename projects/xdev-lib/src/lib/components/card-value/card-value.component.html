@@ -8,7 +8,11 @@
             <mat-card class="accent">
                 <h1 class="mr-12 ml-12">{{cardTitle}}</h1>
                 <div class="value mr-12 ml-12">
-                    <h1 class="m-0">{{value !== null ? (value | number) : '-'}} {{description || ''}}</h1>
+                    <h1 class="m-0">{{value !== null ? (value | number) : '-'}}
+                        <span *ngIf="description" class="secondary-text description">
+                            {{description}}
+                        </span>
+                    </h1>
                     <div class="unit">{{unit}}</div>
                 </div>
             </mat-card>

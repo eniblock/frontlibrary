@@ -1,5 +1,12 @@
 <div id="card-value-list">
     <mat-card *ngIf="data">
+        <mat-icon
+                [matTooltip]="tooltip.join('\n')"
+                *ngIf="pendingValue && tooltip"
+                class="pending-icon"
+        >
+            info
+        </mat-icon>
         <div *ngFor="let item of data" class="item">
             <h1 class="secondary-text mr-12 ml-12">{{item.label}}</h1>
             <div class="value mr-12 ml-12">

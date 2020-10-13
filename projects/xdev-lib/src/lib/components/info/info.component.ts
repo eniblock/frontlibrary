@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {InfoData} from '../info-card/info-card.component';
 
 @Component({
-  selector: 'lib-info',
+  selector: 'app-info',
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss']
 })

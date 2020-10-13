@@ -1,12 +1,17 @@
 <a [href]="rssItem.link[0]" target="_blank" *ngIf="rssItem">
     <mat-card id="rss-item">
         <div class="content">
-            <h2>{{rssItem.title[0]}}</h2>
-            <div class="info-item">
-                <mat-icon class="secondary-text mr-12">alarm</mat-icon>
-                <div>{{rssItem.pubDate[0] | date: 'dd/MM/yyyy'}}</div>
+            <div class="img mr-12">
+                <img *ngIf="rssItem['itunes:image'] && rssItem['itunes:image'].length > 0" [src]="rssItem['itunes:image'][0].$.href">
             </div>
-            <div [innerHTML]="extractContent(rssItem.description[0])" class="mt-12"></div>
+            <div class="info">
+                <h2 class="pt-0 mt-0">{{rssItem.title[0]}}</h2>
+                <div class="info-item">
+                    <mat-icon class="secondary-text mr-12">alarm</mat-icon>
+                    <div>{{rssItem.pubDate[0] | date: 'dd/MM/yyyy'}}</div>
+                </div>
+                <div [innerHTML]="extractContent(rssItem.description[0])" class="mt-12"></div>
+            </div>
         </div>
     </mat-card>
 </a>

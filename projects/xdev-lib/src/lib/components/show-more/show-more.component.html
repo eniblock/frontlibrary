@@ -1,0 +1,7 @@
+<div>
+    <a class="link" (click)="clickShowMore()" *ngIf="!showMore">{{moreLabel}}</a>
+    <a class="link" (click)="clickShowLess()" *ngIf="showMore">{{lessLabel}}</a>
+    <div *ngIf="showMore">
+        <ng-content></ng-content>
+    </div>
+</div>
