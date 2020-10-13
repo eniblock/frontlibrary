@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "xdev-lib",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -48,7 +48,7 @@
     "typescript": "~3.7.5"
   },
   "publishConfig": {
-    "@foo:registry":"https://gitlab.com/api/v4/projects/19142682/packages/npm/"
+    "@the-blockchain-xdev:registry":"https://gitlab.com/api/v4/projects/19142682/packages/npm/"
   }
 
 }
