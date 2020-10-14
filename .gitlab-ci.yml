@@ -7,4 +7,7 @@ deploy:
   stage: deploy
   script:
     - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
+    - ng build
+    - cd dist/xdev-lib
+    - echo "{\n  \"name\": \"xdev-lib\",\n  \"version\": \"0.0.1\",\n  \"peerDependencies\": { \n    \"@angular/common\": \"^9.0.7\",\n    \"@angular/core\": \"^9.0.7\"\n },\n  \"main\": \"bundles/xdev-lib.umd.js\",\n  \"module\": \"fesm5/xdev-lib.js\",\n  \"es2015\": \"fesm2015/xdev-lib.js\",\n  \"esm5\": \"esm5/xdev-lib.js\",\n  \"esm2015\": \"esm2015/xdev-lib.js\",\n  \"fesm5\": \"fesm5/xdev-lib.js\",\n  \"fesm2015\": \"fesm2015/xdev-lib.js\",\n  \"typings\": \"xdev-lib.d.ts\",\n  \"metadata\": \"xdev-lib.metadata.json\",\n  \"sideEffects\": false,\n  \"dependencies\": { \n    \"tslib\": \"^1.10.0\"\n },\n  \"publishConfig\": { \n    \"@the-blockchain-xdev:registry\":\"https://gitlab.com/api/v4/projects/19142682/packages/npm/\"\n }\n}" > package.json
     - npm publish
