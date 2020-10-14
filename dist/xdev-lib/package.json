@@ -1,0 +1,24 @@
+{
+  "name": "xdev-lib",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.0.7",
+    "@angular/core": "^9.0.7"
+  },
+  "main": "bundles/xdev-lib.umd.js",
+  "module": "fesm5/xdev-lib.js",
+  "es2015": "fesm2015/xdev-lib.js",
+  "esm5": "esm5/xdev-lib.js",
+  "esm2015": "esm2015/xdev-lib.js",
+  "fesm5": "fesm5/xdev-lib.js",
+  "fesm2015": "fesm2015/xdev-lib.js",
+  "typings": "xdev-lib.d.ts",
+  "metadata": "xdev-lib.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "publishConfig": {
+    "@the-blockchain-xdev:registry":"https://gitlab.com/api/v4/projects/19142682/packages/npm/"
+  }
+}
