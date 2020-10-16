@@ -20,9 +20,21 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
+    "@ledgerhq/hw-transport-u2f": "^5.26.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@obsidiansystems/hw-app-xtz": "^4.72.3",
+    "@taquito/local-forging": "^6.3.5-beta.0",
+    "@taquito/taquito": "^6.3.5-beta.0",
+    "@types/lodash": "^4.14.162",
+    "base-n": "^3.0.0",
+    "big-integer": "^1.6.48",
+    "blakejs": "^1.1.0",
+    "bs58check": "^2.1.2",
+    "libsodium-wrappers-sumo": "^0.7.8",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.7",
@@ -30,9 +42,9 @@
     "@angular/cli": "~9.0.7",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.12.67",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -48,7 +60,6 @@
     "typescript": "~3.7.5"
   },
   "publishConfig": {
-    "@the-blockchain-xdev:registry":"https://gitlab.com/api/v4/projects/19142682/packages/npm/"
+    "@the-blockchain-xdev:registry": "https://gitlab.com/api/v4/projects/19142682/packages/npm/"
   }
-
 }
