@@ -43,4 +43,4 @@ import {NoDataModule} from './components/no-data/no-data.module';
         NoDataModule
     ]
 })
-export class AppsSharedModule { }
+export class XdevLib { }
