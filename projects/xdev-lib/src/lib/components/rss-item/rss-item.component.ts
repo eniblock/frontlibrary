@@ -10,10 +10,17 @@ export class RssItemComponent implements OnInit {
 
   @Input() rssItem: IRssItem;
 
-  extractContent = (s) => {
+  extractContent = (s: string) => {
+    let content = s.replace(/<img[^>]*>/g, '');
+    content = content.replace( /(<([^>]+)>)/ig, '');
     const span = document.createElement('span');
-    span.innerHTML = s;
+    span.innerHTML = content;
     return span.textContent || span.innerText;
+  }
+
+  extractImg = (s: string) => {
+    const img = s.match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+    return img && img.length > 1 ? img[1] : null;
   }
 
   constructor() { }

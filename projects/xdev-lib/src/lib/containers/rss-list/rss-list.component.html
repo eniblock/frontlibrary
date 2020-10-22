@@ -1,3 +1,9 @@
-<div class="rss-item mb-12" *ngFor="let item of rssFeedData?.rss?.channel[0].item">
-    <app-rss-item [rssItem]="item"></app-rss-item>
+<div *ngIf="rssFeedData?.rss?.channel[0].item !== null; else elseBlock">
+    <div class="rss-item mb-12" *ngFor="let item of rssFeedData?.rss?.channel[0].item">
+        <app-rss-item [rssItem]="item"></app-rss-item>
+    </div>
 </div>
+<ng-template #elseBlock>
+    <div class="error">{{'NO_DATA' | translate}}</div>
+</ng-template>
+
