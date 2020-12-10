@@ -1,14 +1,44 @@
 #info-card {
+  border: 1px solid #E9E9EA;
+  border-radius: 10px;
+  padding: 20px 30px;
+
   h5 {
-    font-weight: 600;
+    font-weight: 700;
   }
+
   .row {
     display: flex;
     justify-content: space-between;
+
+    .secondary-text {
+      flex: 1 1 0;
+      color: #828282;
+    }
+
     .value {
+      flex: 1 1 0;
       font-weight: 500;
+
+      &.btn-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          width: 150px;
+          height: 35px;
+
+          ::ng-deep {
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
     }
   }
+
   hr {
     opacity: 0.5;
   }

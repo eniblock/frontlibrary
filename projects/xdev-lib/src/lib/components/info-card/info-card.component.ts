@@ -1,26 +1,30 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 export interface InfoData {
-  label: string;
-  value: any;
-  type?: string;
-  link?: string;
+    label: string;
+    value: any;
+    type?: string;
+    link?: string;
+    callback?: () => void;
+    buttonLabel?: string;
+    buttonDisabled?: boolean;
 }
 
 @Component({
-  selector: 'app-info-card',
-  templateUrl: './info-card.component.html',
-  styleUrls: ['./info-card.component.scss']
+    selector: 'app-info-card',
+    templateUrl: './info-card.component.html',
+    styleUrls: ['./info-card.component.scss']
 })
 export class InfoCardComponent implements OnInit {
 
-  @Input() data: InfoData[];
-  @Input() title: string;
+    @Input() data: InfoData[];
+    @Input() title: string;
 
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

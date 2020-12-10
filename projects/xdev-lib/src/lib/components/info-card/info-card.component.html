@@ -1,17 +1,30 @@
 <div id="info-card">
-    <h5 *ngIf="title" class="mt-0">{{title | uppercase}}</h5>
-    <mat-card class="mb-12 pb-28">
+    <div *ngIf="title">
+        <h5 class="mt-0">{{title | uppercase}}</h5>
+        <hr class="separator mt-16">
+    </div>
+    <div>
         <ng-container *ngFor="let item of data">
-            <div class="row mt-16 mr-12 ml-12" >
+            <div class="row mt-16">
                 <div class="secondary-text">{{item.label}}</div>
-                <div *ngIf="item.type === 'date'" class="value">{{item.value ? (item.value | date : 'dd/MM/yyyy') : '-'}}</div>
-                <div *ngIf="item.type === 'number'" class="value">{{item.value ? (item.value | number:'':'fr-FR') : '-'}}</div>
-                <a *ngIf="item.type === 'link'" class="value" [routerLink]="item.link">{{item.value ? item.value : '-'}}</a>
-                <div *ngIf="item.type === 'money'" class="value">{{item.value ? (item.value | currency: 'EUR': 'symbol') : '-'}}</div>
-                <div *ngIf="!item.type" class="value" >{{item.value ? (item.value) : '-'}}</div>
+                <div *ngIf="item.type === 'date'"
+                     class="value">{{item.value ? (item.value | date : 'dd/MM/yyyy') : '-'}}</div>
+                <div *ngIf="item.type === 'number'"
+                     class="value">{{item.value ? (item.value | number:'':'fr-FR') : '-'}}</div>
+                <a *ngIf="item.type === 'link'" class="value"
+                   [routerLink]="item.link">{{item.value ? item.value : '-'}}</a>
+                <div *ngIf="item.type === 'money'"
+                     class="value">{{item.value ? (item.value | currency: 'EUR': 'symbol') : '-'}}</div>
+                <div *ngIf="item.type === 'button'" class="btn-container value">
+                    <span>{{item.value ? item.value : '-'}}</span>
+                    <button mat-raised-button color="accent" [disabled]="item.buttonDisabled" (click)="item.callback()">
+                        {{item.buttonLabel}}
+                    </button>
+                </div>
+                <div *ngIf="!item.type" class="value">{{item.value ? (item.value) : '-'}}</div>
             </div>
-            <hr class="separator mr-8 ml-8 mt-16" *ngIf="item !== data[data.length - 1]">
+            <hr class="separator mt-16" *ngIf="item !== data[data.length - 1]">
         </ng-container>
         <ng-content></ng-content>
-    </mat-card>
+    </div>
 </div>
