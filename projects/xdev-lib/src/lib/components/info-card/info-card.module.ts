@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {InfoCardComponent} from './info-card.component';
 import {RouterModule} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatOptionModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import {MatButtonModule} from '@angular/material/button';
     imports: [
         CommonModule,
         RouterModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSelectModule,
+        MatOptionModule
     ]
 })
 export class InfoCardModule {
