@@ -1,11 +1,10 @@
 <div id="info-card">
     <div *ngIf="title">
-        <h5 class="mt-0">{{title | uppercase}}</h5>
-        <hr class="separator mt-16">
+        <h5>{{title | uppercase}}</h5>
     </div>
     <div>
         <ng-container *ngFor="let item of data">
-            <div class="row mt-16">
+            <div class="row" [ngClass]="[title ? '' : 'no-title', item.customClass ? item.customClass : '']">
                 <div class="secondary-text">{{item.label}}</div>
                 <div *ngIf="item.type === 'date'"
                      class="value">{{item.value ? (item.value | date : 'dd/MM/yyyy') : '-'}}</div>
@@ -21,9 +20,15 @@
                         {{item.buttonLabel}}
                     </button>
                 </div>
+                <div class="value" *ngIf="item.type === 'select'">
+                    <mat-select [(value)]="item.value" (selectionChange)="item.callback($event.value)">
+                        <mat-option *ngFor="let opt of item.options" [value]="opt.value">
+                            {{opt.label}}
+                        </mat-option>
+                    </mat-select>
+                </div>
                 <div *ngIf="!item.type" class="value">{{item.value ? (item.value) : '-'}}</div>
             </div>
-            <hr class="separator mt-16" *ngIf="item !== data[data.length - 1]">
         </ng-container>
         <ng-content></ng-content>
     </div>

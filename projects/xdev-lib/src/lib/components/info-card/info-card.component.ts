@@ -3,11 +3,13 @@ import {Component, Input, OnInit} from '@angular/core';
 export interface InfoData {
     label: string;
     value: any;
+    customClass?: string;
     type?: string;
     link?: string;
-    callback?: () => void;
+    callback?: (event?) => void;
     buttonLabel?: string;
     buttonDisabled?: boolean;
+    options?: { label: string, value: string }[];
 }
 
 @Component({
