@@ -8,7 +8,7 @@ build:
   stage: build
   script:
     - npm install -g @angular/cli
-    - npm install @angular-devkit/build-angular
+    - npm install @angular-devkit/build-angular --legacy-peer-deps
     - ng build --prod
   artifacts:
     paths:
