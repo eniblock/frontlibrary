@@ -18,9 +18,21 @@ export class RssItemComponent implements OnInit {
         return span.textContent || span.innerText;
     }
 
-    extractImg = (content: any) => {
-        if (content && content[0]) {
-            return content[0].$.url;
+    extractImg = (item: IRssItem) => {
+        if (item.description && item.description[0]) {
+            const img = item.description[0].match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+            if (img && img.length > 1) {
+                return img;
+            }
+        }
+        if (item['content:encoded'] && item['content:encoded'][0]) {
+            const img = item['content:encoded'][0].match(/\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/);
+            if (img && img.length > 1) {
+                return img;
+            }
+        }
+        if (item['media:content'] && item['media:content'][0]) {
+            return item['media:content'][0].$.url;
         }
         return null;
     }

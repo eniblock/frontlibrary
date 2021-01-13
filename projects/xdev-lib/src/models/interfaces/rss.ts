@@ -25,7 +25,8 @@ export interface IRssImage {
 }
 
 export interface IRssItem {
-    'media:content': Array<string>;
+    'media:content': Array<any>;
+    'content:encoded': Array<any>;
     'dc:creator': Array<string>;
     category: Array<string>;
     description: Array<string>;
