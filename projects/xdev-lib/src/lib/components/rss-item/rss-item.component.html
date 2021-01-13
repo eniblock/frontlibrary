@@ -2,7 +2,7 @@
     <mat-card id="rss-item">
         <div class="content">
             <div class="img mr-12">
-                <img *ngIf="extractImg(rssItem.description[0])" [src]="extractImg(rssItem.description[0])">
+                <img *ngIf="extractImg(rssItem['media:content'])" [src]="extractImg(rssItem['media:content'])">
             </div>
             <div class="info">
                 <h2 class="pt-0 mt-0">{{rssItem.title[0]}}</h2>
