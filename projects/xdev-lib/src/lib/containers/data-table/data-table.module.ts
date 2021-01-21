@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {DataTableComponent} from './data-table.component';
+import {CustomCellModule} from '../../components/custom-cell/custom-cell.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {DataTableComponent} from './data-table.component';
         ReactiveFormsModule,
         MatDatepickerModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        CustomCellModule
     ],
     exports: [DataTableComponent]
 })

@@ -45,13 +45,24 @@
         <ng-container [matColumnDef]="column.name" *ngFor="let column of columns">
             <ng-container [ngSwitch]="column.type">
 
+                <div *ngSwitchCase="'CUSTOM'">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!column.sort">
+                        <span *ngIf="column.displayName !== undefined; else columnNameDefault">{{column.displayName}}</span>
+                        <ng-template #columnNameDefault>{{ column.name | titlecase }}</ng-template>
+                    </th>
+                    <td mat-cell *matCellDef="let element"
+                        [ngClass]="column.customClass ? column.customClass(element) : ''">
+                        <app-custom-cell [column]="column" [element]="element"></app-custom-cell>
+                    </td>
+                </div>
+
                 <div *ngSwitchCase="'BUTTON'">
                     <th *matHeaderCellDef
                         mat-header-cell></th>
                     <td mat-cell *matCellDef="let element"
                         [ngClass]="column.customClass ? column.customClass(element) : ''">
                         <button (click)="column.callback ? column.callback(element) : ''" mat-button>
-                            <span *ngIf="column.displayName; else columnNameDefault">{{column.displayName}}</span>
+                            <span *ngIf="column.displayName !== undefined; else columnNameDefault">{{column.displayName}}</span>
                             <ng-template #columnNameDefault>{{ column.name | titlecase }}</ng-template>
                             <mat-icon *ngIf="column.icon" matSuffix>{{column.icon}}</mat-icon>
                         </button>
@@ -60,13 +71,13 @@
 
                 <div *ngSwitchDefault>
                     <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!column.sort">
-                        <span *ngIf="column.displayName; else columnNameDefault">{{column.displayName}}</span>
+                        <span *ngIf="column.displayName !== undefined; else columnNameDefault">{{column.displayName}}</span>
                         <ng-template #columnNameDefault>{{ column.name | titlecase }}</ng-template>
                     </th>
                     <td mat-cell *matCellDef="let element"
                         [ngClass]="column.customClass ? column.customClass(element) : ''">
                         <span
-                            *ngIf="column.displayValue; else columnValueDefault">{{column.displayValue(element)}}</span>
+                                *ngIf="column.displayValue; else columnValueDefault">{{column.displayValue(element)}}</span>
                         <ng-template #columnValueDefault>
                             <span>{{ element[column.name] }}</span>
                         </ng-template>

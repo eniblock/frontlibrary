@@ -12,6 +12,7 @@ import {RssListModule} from './containers/rss-list/rss-list.module';
 import {ShowMoreModule} from './components/show-more/show-more.module';
 import {NoDataModule} from './components/no-data/no-data.module';
 import {DataTableModule} from './containers/data-table/data-table.module';
+import {CustomCellModule} from './components/custom-cell/custom-cell.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {DataTableModule} from './containers/data-table/data-table.module';
         RssListModule,
         ShowMoreModule,
         NoDataModule,
-        DataTableModule
+        DataTableModule,
+        CustomCellModule
     ],
     imports: [
         CommonModule,
@@ -42,7 +44,8 @@ import {DataTableModule} from './containers/data-table/data-table.module';
         RssListModule,
         ShowMoreModule,
         NoDataModule,
-        DataTableModule
+        DataTableModule,
+        CustomCellModule
     ]
 })
 export class XdevLib {

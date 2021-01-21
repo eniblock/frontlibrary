@@ -7,11 +7,13 @@ export interface DataTableColumn {
     customClass?: (row: any) => string;
     type?: DataTableColumnType;
     callback?: (row: any) => void;
+    component?: any;
 }
 
 export enum DataTableColumnType {
     VALUE = 'VALUE',
-    BUTTON = 'BUTTON'
+    BUTTON = 'BUTTON',
+    CUSTOM = 'CUSTOM'
 }
 
 export interface DataTableFilter {

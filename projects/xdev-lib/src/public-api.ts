@@ -14,5 +14,6 @@ export * from './lib/components/info-card/info-card.component';
 export * from './lib/components/info-card/info-card.module';
 export * from './lib/components/info/info.component';
 export * from './lib/components/info/info.module';
+export * from './lib/components/custom-cell/custom-cell.component';
 export * from './lib/containers/data-table/data-table.model';
 export * from './lib/xdev-lib';
