@@ -10,6 +10,10 @@ export interface DataTableColumn {
     component?: any;
 }
 
+export function isDataTableColumn(value: any): value is DataTableColumn {
+    return !!(value as DataTableColumn).name;
+}
+
 export enum DataTableColumnType {
     VALUE = 'VALUE',
     BUTTON = 'BUTTON',

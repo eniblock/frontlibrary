@@ -40,9 +40,12 @@
         </ng-container>
     </form>
 
+
     <table mat-table [dataSource]="data" matSort>
 
-        <ng-container [matColumnDef]="column.name" *ngFor="let column of columns">
+        <ng-content></ng-content>
+
+        <ng-container [matColumnDef]="column.name" *ngFor="let column of dataTableColumns">
             <ng-container [ngSwitch]="column.type">
 
                 <div *ngSwitchCase="'CUSTOM'">
@@ -61,7 +64,8 @@
                         mat-header-cell></th>
                     <td mat-cell *matCellDef="let element"
                         [ngClass]="column.customClass ? column.customClass(element) : ''">
-                        <button (click)="column.callback ? column.callback(element) : ''" mat-button>
+                        <button (click)="$event.stopPropagation();column.callback ? column.callback(element) : ''"
+                                mat-button>
                             <span *ngIf="column.displayName !== undefined; else columnNameDefault">{{column.displayName}}</span>
                             <ng-template #columnNameDefault>{{ column.name | titlecase }}</ng-template>
                             <mat-icon *ngIf="column.icon" matSuffix>{{column.icon}}</mat-icon>
@@ -88,7 +92,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnsName"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnsName"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsName" (click)="rowClicked.emit(row)"></tr>
     </table>
 
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
