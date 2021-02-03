@@ -1,19 +1,21 @@
 #dataTable {
+  width: 100%;
+
+  .filters {
+    mat-form-field {
+      width: 170px;
+      margin-right: 10px;
+    }
+  }
+
+  table {
     width: 100%;
 
-    .filters {
-        mat-form-field {
-            width: 170px;
-            margin-right: 10px;
-        }
+    ::ng-deep {
+      th {
+        color: #828282;
+        font-size: 14px;
+      }
     }
-
-    table {
-        width: 100%;
-
-        th {
-            color: #828282;
-            font-size: 14px;
-        }
-    }
+  }
 }

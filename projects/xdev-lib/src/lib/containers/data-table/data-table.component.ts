@@ -1,10 +1,20 @@
-import {AfterViewInit, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {
+    AfterContentInit,
+    AfterViewInit,
+    Component,
+    ContentChildren,
+    EventEmitter,
+    Input,
+    Output,
+    QueryList,
+    ViewChild
+} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort, Sort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatColumnDef, MatTable, MatTableDataSource} from '@angular/material/table';
 import moment from 'moment';
-import {DataTableColumn, DataTableFilter} from './data-table.model';
+import {DataTableColumn, DataTableFilter, isDataTableColumn} from './data-table.model';
 import {DataSource, isDataSource} from '@angular/cdk/collections';
 
 @Component({
@@ -12,18 +22,28 @@ import {DataSource, isDataSource} from '@angular/cdk/collections';
     templateUrl: './data-table.component.html',
     styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent implements AfterViewInit {
+export class DataTableComponent implements AfterViewInit, AfterContentInit {
 
     @Input() pageSize = 10;
     @Input() pageSizeOptions = [10, 20, 50];
     @Input() length = null;
+    @Input() set columns(values: (DataTableColumn | string)[]) {
+        if (values) {
+            this.dataTableColumns = (values.filter(val => isDataTableColumn(val))) as DataTableColumn[];
+            this.columnsName = (values.filter(val => typeof val === 'string')) as string[];
+            this.columnsName = this.columnsName.concat(this.dataTableColumns.map(val => val.name));
+        }
+    }
 
     @Output() filterChange = new EventEmitter<string>();
     @Output() sortChange = new EventEmitter<Sort>();
     @Output() pageChange = new EventEmitter<PageEvent>();
+    @Output() rowClicked = new EventEmitter();
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatTable, {static: true}) table: MatTable<any>;
+    @ContentChildren(MatColumnDef) columnDefs: QueryList<MatColumnDef>;
 
     private _data: MatTableDataSource<any> | DataSource<any>;
 
@@ -35,19 +55,6 @@ export class DataTableComponent implements AfterViewInit {
 
     get data(): MatTableDataSource<any> | DataSource<any> {
         return this._data;
-    }
-
-    private _columns: DataTableColumn[];
-
-    @Input() set columns(values: DataTableColumn[]) {
-        if (values) {
-            this._columns = values;
-            this.columnsName = values.map(val => val.name);
-        }
-    }
-
-    get columns(): DataTableColumn[] {
-        return this._columns;
     }
 
     private _filters: DataTableFilter[];
@@ -69,6 +76,7 @@ export class DataTableComponent implements AfterViewInit {
     }
 
     filtersForm: FormGroup;
+    dataTableColumns: DataTableColumn[];
     columnsName: string[];
 
     constructor(private _formBuilder: FormBuilder) {
@@ -85,6 +93,10 @@ export class DataTableComponent implements AfterViewInit {
             this.paginator.page.subscribe(event => this.pageChange.emit(event));
             this.sort.sortChange.subscribe(event => this.sortChange.emit(event));
         }
+    }
+
+    ngAfterContentInit(): void {
+        this.columnDefs.forEach(columnDef => this.table.addColumnDef(columnDef));
     }
 
     getFilters(): FormArray {
