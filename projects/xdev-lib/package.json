@@ -1,6 +1,6 @@
 {
   "name": "@the-blockchain-xdev/xdev-lib",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "peerDependencies": {
     "@angular/common": "~11.1.2",
     "@angular/core": "~11.1.2"

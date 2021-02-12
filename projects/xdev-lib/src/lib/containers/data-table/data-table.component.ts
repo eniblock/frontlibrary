@@ -16,6 +16,8 @@ import {MatColumnDef, MatTable, MatTableDataSource} from '@angular/material/tabl
 import moment from 'moment';
 import {DataTableColumn, DataTableFilter, DataTableFilterType, isDataTableColumn} from './data-table.model';
 import {DataSource, isDataSource} from '@angular/cdk/collections';
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
     selector: 'app-data-table',
@@ -27,6 +29,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     @Input() pageSize = 10;
     @Input() pageSizeOptions = [10, 20, 50];
     @Input() length = null;
+
     @Input() set columns(values: (DataTableColumn | string)[]) {
         if (values) {
             this.dataTableColumns = (values.filter(val => isDataTableColumn(val))) as DataTableColumn[];
@@ -87,10 +90,18 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     filtersForm: FormGroup;
     dataTableColumns: DataTableColumn[];
     columnsName: string[];
+    $dateRangeEvent = new Subject();
 
     constructor(private _formBuilder: FormBuilder) {
         this.filtersForm = this._formBuilder.group({
             filters: this._formBuilder.array([])
+        });
+
+        // Prevent double event from daterange picker
+        this.$dateRangeEvent.pipe(
+            debounceTime(100)
+        ).subscribe(() => {
+            this.applyFilter();
         });
     }
 
