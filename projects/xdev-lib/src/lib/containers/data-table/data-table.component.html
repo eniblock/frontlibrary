@@ -41,9 +41,9 @@
                     <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
                     <mat-date-range-input [rangePicker]="daterangepicker_i">
                         <input matStartDate formControlName="startDate"
-                               (dateChange)="applyFilter()">
+                               (dateChange)="$dateRangeEvent.next()">
                         <input matEndDate formControlName="endDate"
-                               (dateChange)="applyFilter()">
+                               (dateChange)="$dateRangeEvent.next()">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="daterangepicker_i"></mat-datepicker-toggle>
                     <mat-date-range-picker #daterangepicker_i></mat-date-range-picker>
