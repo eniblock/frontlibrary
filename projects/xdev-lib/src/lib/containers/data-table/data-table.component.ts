@@ -14,7 +14,7 @@ import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatColumnDef, MatTable, MatTableDataSource} from '@angular/material/table';
 import moment from 'moment';
-import {DataTableColumn, DataTableFilter, isDataTableColumn} from './data-table.model';
+import {DataTableColumn, DataTableFilter, DataTableFilterType, isDataTableColumn} from './data-table.model';
 import {DataSource, isDataSource} from '@angular/cdk/collections';
 
 @Component({
@@ -63,9 +63,18 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
         if (filters) {
             const formArray = this.filtersForm.get('filters') as FormArray;
             for (const filter of filters) {
-                formArray.push(this._formBuilder.group({
-                    filter: ''
-                }));
+                switch (filter.type) {
+                    case DataTableFilterType.DATERANGEPICKER:
+                        formArray.push(this._formBuilder.group({
+                            startDate: '',
+                            endDate: ''
+                        }));
+                        break;
+                    default:
+                        formArray.push(this._formBuilder.group({
+                            filter: ''
+                        }));
+                }
             }
             this._filters = filters;
         }
@@ -116,6 +125,9 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
                 } else if (filters[i].value.filter instanceof moment) {
                     values += filters[i].value.filter.unix();
                 }
+            } else if (filters[i].value.startDate && filters[i].value.endDate) {
+                values += (filters[i].value.startDate ? filters[i].value.startDate.unix() : '') + ',' +
+                    (filters[i].value.endDate ? filters[i].value.endDate.unix() : '');
             } else {
                 values += '';
             }
