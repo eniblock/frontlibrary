@@ -36,6 +36,19 @@
                     <mat-datepicker #datepicker_i></mat-datepicker>
                 </mat-form-field>
 
+                <mat-form-field appearance="outline" class="form-field daterange"
+                                *ngSwitchCase="'DATERANGEPICKER'">
+                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
+                    <mat-date-range-input [rangePicker]="daterangepicker_i">
+                        <input matStartDate formControlName="startDate"
+                               (dateChange)="applyFilter()">
+                        <input matEndDate formControlName="endDate"
+                               (dateChange)="applyFilter()">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="daterangepicker_i"></mat-datepicker-toggle>
+                    <mat-date-range-picker #daterangepicker_i></mat-date-range-picker>
+                </mat-form-field>
+
             </ng-container>
         </ng-container>
     </form>

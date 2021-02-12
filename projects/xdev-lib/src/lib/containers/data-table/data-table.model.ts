@@ -30,5 +30,6 @@ export interface DataTableFilter {
 export enum DataTableFilterType {
     STRING = 'STRING',
     SELECT = 'SELECT',
-    DATEPICKER = 'DATEPICKER'
+    DATEPICKER = 'DATEPICKER',
+    DATERANGEPICKER = 'DATERANGEPICKER'
 }
