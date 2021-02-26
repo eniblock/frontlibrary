@@ -12,6 +12,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {DataTableComponent} from './data-table.component';
 import {CustomCellModule} from '../../components/custom-cell/custom-cell.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {CustomCellModule} from '../../components/custom-cell/custom-cell.module'
         MatDatepickerModule,
         MatPaginatorModule,
         MatSortModule,
-        CustomCellModule
+        CustomCellModule,
+        MatProgressSpinnerModule
     ],
     exports: [DataTableComponent]
 })

@@ -29,6 +29,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     @Input() pageSize = 10;
     @Input() pageSizeOptions = [10, 20, 50];
     @Input() length = null;
+    @Input() loading: boolean;
 
     @Input() set columns(values: (DataTableColumn | string)[]) {
         if (values) {
