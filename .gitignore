@@ -17,6 +17,7 @@ projects/xdev-lib/node_modules
 *.launch
 .settings/
 *.sublime-workspace
+xdevtech-frontlibrary.iml
 
 # IDE - VSCode
 .vscode/*

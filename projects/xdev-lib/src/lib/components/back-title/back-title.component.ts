@@ -8,10 +8,7 @@ import { Location } from '@angular/common';
 })
 export class BackTitleComponent {
 
-  @Input() titleSection: string;
-  @Input() description: string;
-  @Input() bckDescription?: string;
-  @Input() pendingValue?: string;
+  @Input() title: string;
   @Input() link: string;
 
   constructor(private _location: Location) { }

@@ -7,20 +7,5 @@
             arrow_back
         </mat-icon>
     </button>
-    <div>
-        <div class="h2 content">
-            {{description}}
-            <span
-                    *ngIf="bckDescription"
-                    [ngClass]="{'secondary-text': pendingValue, 'pending': pendingValue}"
-                    [matTooltip]="pendingValue && 'Pending ' + bckDescription">
-                - {{bckDescription}}
-            </span>
-        </div>
-        <div class="subtitle secondary-text">
-            {{titleSection}}
-        </div>
-        <ng-content select="[description]"></ng-content>
-    </div>
-    <ng-content></ng-content>
+    <h3 class="title mat-h3">{{title}}</h3>
 </div>
