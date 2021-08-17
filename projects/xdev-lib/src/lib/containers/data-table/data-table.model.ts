@@ -1,3 +1,5 @@
+import {Observable} from 'rxjs';
+
 export interface DataTableColumn {
     name: string;
     displayName?: string;
@@ -24,7 +26,7 @@ export interface DataTableFilter {
     column: string;
     type: DataTableFilterType;
     displayName?: string;
-    values?: any[];
+    values?: any[] | Observable<any[]>;
 }
 
 export enum DataTableFilterType {

@@ -16,7 +16,7 @@ import {MatColumnDef, MatTable, MatTableDataSource} from '@angular/material/tabl
 import moment from 'moment';
 import {DataTableColumn, DataTableFilter, DataTableFilterType, isDataTableColumn} from './data-table.model';
 import {DataSource, isDataSource} from '@angular/cdk/collections';
-import {Subject} from 'rxjs';
+import {isObservable, Observable, Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 
 @Component({
@@ -50,6 +50,9 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     @ContentChildren(MatColumnDef) columnDefs: QueryList<MatColumnDef>;
 
     private _data: MatTableDataSource<any> | DataSource<any>;
+
+    selectData = [];
+    loadingData = [];
 
     @Input() set data(values: MatTableDataSource<any> | DataSource<any>) {
         if (values) {
@@ -148,6 +151,22 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
             this.data.filter = values;
         } else if (isDataSource(this.data)) {
             this.filterChange.emit(values);
+        }
+    }
+
+    isObservable(input: any): boolean {
+        return isObservable(input);
+    }
+
+    loadOptions(opened: boolean, observable: Observable<any>, index: number): any {
+        if (opened) {
+            this.loadingData[index] = true;
+            observable.subscribe(data => {
+                this.selectData[index] = data;
+                this.loadingData[index] = false;
+            }, () => {
+                this.loadingData[index] = false;
+            });
         }
     }
 }
