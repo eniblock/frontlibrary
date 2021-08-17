@@ -11,21 +11,12 @@
                     <input matInput formControlName="filter" (keyup)="applyFilter()">
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="form-field"
-                                *ngSwitchCase="'SELECT'">
-                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
-                    <mat-select formControlName="filter" (selectionChange)="applyFilter()">
-                        <mat-option *ngFor="let item of filter.values" [value]="item">
-                            {{item}}
-                        </mat-option>
-                    </mat-select>
-                    <div matSuffix>
-                        <mat-icon *ngIf="getFilters().controls[i].value.filter"
-                                  (click)="$event.stopPropagation();getFilters().controls[i].reset();applyFilter()">
-                            clear
-                        </mat-icon>
-                    </div>
-                </mat-form-field>
+                <ng-container *ngSwitchCase="'SELECT'">
+
+                    <app-select-filter [filter]="filter" formControlName="filter"
+                                       (ngModelChange)="applyFilter()"></app-select-filter>
+
+                </ng-container>
 
                 <mat-form-field appearance="outline" class="form-field"
                                 *ngSwitchCase="'DATEPICKER'">

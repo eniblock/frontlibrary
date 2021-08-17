@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -10,13 +10,18 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 import {DataTableComponent} from './data-table.component';
 import {CustomCellModule} from '../../components/custom-cell/custom-cell.module';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {SelectFilterComponent} from './select-filter/select-filter.component';
 
 
 @NgModule({
-    declarations: [DataTableComponent],
+    declarations: [
+        DataTableComponent,
+        SelectFilterComponent
+    ],
     imports: [
         CommonModule,
         MatTableModule,
@@ -30,7 +35,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
         MatPaginatorModule,
         MatSortModule,
         CustomCellModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        FormsModule
     ],
     exports: [DataTableComponent]
 })
