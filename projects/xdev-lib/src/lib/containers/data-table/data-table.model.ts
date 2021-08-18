@@ -27,6 +27,8 @@ export interface DataTableFilter {
     type: DataTableFilterType;
     displayName?: string;
     values?: any[] | Observable<any[]>;
+    displayValue?: (item: any) => string;
+    filterValue?: (item: any) => string;
 }
 
 export enum DataTableFilterType {

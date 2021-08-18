@@ -1,4 +1,4 @@
-import {Component, ElementRef, forwardRef, Input, OnDestroy, ViewChild} from '@angular/core';
+import {Component, forwardRef, Input, OnDestroy, ViewChild} from '@angular/core';
 import {isObservable, Observable, Subject} from 'rxjs';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -49,7 +49,11 @@ export class SelectFilterComponent implements ControlValueAccessor, OnDestroy {
 
     select(option): void {
         this.selectValue = option;
-        this.propagateChange(option);
+        if (this.filter.filterValue) {
+            this.propagateChange(this.filter.filterValue(option));
+        } else {
+            this.propagateChange(option);
+        }
     }
 
     loadOptions(opened: boolean, options: any[] | Observable<any[]>): any {

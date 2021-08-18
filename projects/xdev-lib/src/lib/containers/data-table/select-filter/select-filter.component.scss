@@ -3,6 +3,11 @@ mat-form-field {
   margin-right: 10px;
 }
 
+.suffix {
+  display: flex;
+  align-items: center;
+}
+
 ::ng-deep {
   .hide-dummy-option {
     display: none !important;

@@ -6,10 +6,10 @@
                 (openedChange)="loadOptions($event, filter.values)">
         <mat-option *ngIf="!data || !data.length" disabled></mat-option>
         <mat-option *ngFor="let item of data" [value]="item">
-            {{item}}
+            {{filter.displayValue ? filter.displayValue(item) : item}}
         </mat-option>
     </mat-select>
-    <div matSuffix>
+    <div class="suffix" matSuffix>
         <mat-icon *ngIf="selectValue"
                   (click)="$event.stopPropagation();select(null)">
             clear

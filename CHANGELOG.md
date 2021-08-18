@@ -8,5 +8,9 @@ Simplified component
 
 # 0.0.19 (2021-08-17)
 ### DataTableComponent
-- Extract select filter into another component (SelectFilterComponent).
+- Extract select filter into another component (SelectFilterComponent)
 - Handle observables as mat-option for SelectFilterComponent
+
+# 0.0.20 (2021-08-18)
+### SelectFilterComponent
+- Handle objects in select filter
