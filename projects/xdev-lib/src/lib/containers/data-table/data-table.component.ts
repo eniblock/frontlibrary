@@ -39,7 +39,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
         }
     }
 
-    @Output() filterChange = new EventEmitter<string>();
+    @Output() filterChange = new EventEmitter<any>();
     @Output() sortChange = new EventEmitter<Sort>();
     @Output() pageChange = new EventEmitter<PageEvent>();
     @Output() rowClicked = new EventEmitter();
@@ -129,20 +129,38 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
 
     applyFilter(): void {
         const filters = this.getFilters().controls;
+        const filtersObject = {};
         let values = '';
         for (let i = 0; i < filters.length; i++) {
             if (i > 0) {
                 values += '$';
             }
             if (filters[i].value.filter) {
-                if (typeof filters[i].value.filter === 'string') {
-                    values += filters[i].value.filter;
-                } else if (filters[i].value.filter instanceof moment) {
+                if (filters[i].value.filter instanceof moment) {
                     values += filters[i].value.filter.unix();
+                } else {
+                    values += filters[i].value.filter;
+                }
+                if (this.filters[i].applyFilter) {
+                    filtersObject[this.filters[i].column] = this.filters[i].applyFilter(filters[i].value.filter);
+                } else {
+                    filtersObject[this.filters[i].column] = filters[i].value.filter;
                 }
             } else if (filters[i].value.startDate && filters[i].value.endDate) {
-                values += (filters[i].value.startDate ? filters[i].value.startDate.unix() : '') + ',' +
-                    (filters[i].value.endDate ? filters[i].value.endDate.unix() : '');
+                const startDate = filters[i].value.startDate ? filters[i].value.startDate.unix() : '';
+                const endDate = filters[i].value.endDate ? filters[i].value.endDate.unix() : '';
+                values += startDate + ',' + endDate;
+                if (this.filters[i].applyFilter) {
+                    filtersObject[this.filters[i].column] = this.filters[i].applyFilter({
+                        startDate: filters[i].value.startDate,
+                        endDate: filters[i].value.endDate
+                    });
+                } else {
+                    filtersObject[this.filters[i].column] = {
+                        startDate: filters[i].value.startDate,
+                        endDate: filters[i].value.endDate
+                    };
+                }
             } else {
                 values += '';
             }
@@ -150,7 +168,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
         if (this.data instanceof MatTableDataSource) {
             this.data.filter = values;
         } else if (isDataSource(this.data)) {
-            this.filterChange.emit(values);
+            this.filterChange.emit(filtersObject);
         }
     }
 
