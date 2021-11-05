@@ -14,3 +14,10 @@ Simplified component
 # 0.0.20 (2021-08-18)
 ### SelectFilterComponent
 - Handle objects in select filter
+
+# 0.0.21 (2021-11-05)
+### DataTableComponent
+- Angular 12 upgrade
+- Remove filterValue from DataTableFilter interface
+- Add applyFilter to DataTableFilter interface
+- DataTableComponent now calls applyFilter fn before emitting the values

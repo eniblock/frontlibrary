@@ -49,11 +49,7 @@ export class SelectFilterComponent implements ControlValueAccessor, OnDestroy {
 
     select(option): void {
         this.selectValue = option;
-        if (this.filter.filterValue) {
-            this.propagateChange(this.filter.filterValue(option));
-        } else {
-            this.propagateChange(option);
-        }
+        this.propagateChange(option);
     }
 
     loadOptions(opened: boolean, options: any[] | Observable<any[]>): any {
