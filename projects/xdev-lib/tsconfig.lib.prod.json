@@ -5,6 +5,6 @@
     "types" : ["node", "lodash"]
   },
   "angularCompilerOptions": {
-    "enableIvy": false
+    "compilationMode": "partial"
   }
 }

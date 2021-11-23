@@ -8,8 +8,9 @@ describe('RssItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RssItemComponent ]
-    })
+    declarations: [RssItemComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   }));
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 export interface InfoData {
     label: string;
@@ -17,7 +17,7 @@ export interface InfoData {
     templateUrl: './info-card.component.html',
     styleUrls: ['./info-card.component.scss']
 })
-export class InfoCardComponent implements OnInit {
+export class InfoCardComponent {
 
     @Input() data: InfoData[];
     @Input() title: string;
@@ -26,7 +26,5 @@ export class InfoCardComponent implements OnInit {
     constructor() {
     }
 
-    ngOnInit(): void {
-    }
 
 }

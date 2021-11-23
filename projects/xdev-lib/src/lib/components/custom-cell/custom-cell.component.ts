@@ -13,7 +13,7 @@ import {DataTableColumn} from '../../containers/data-table/data-table.model';
 @Component({
     template: '',
 })
-export class CellDefault {
+export class CellDefaultComponent {
     @Input() column: DataTableColumn;
     @Input() element: any;
 }
@@ -23,7 +23,7 @@ export class CellDefault {
     templateUrl: './custom-cell.component.html',
     styleUrls: ['./custom-cell.component.css']
 })
-export class CustomCellComponent extends CellDefault implements OnChanges, OnDestroy {
+export class CustomCellComponent extends CellDefaultComponent implements OnChanges, OnDestroy {
 
     customComponent: any;
     @ViewChild('dynamicTarget', {read: ViewContainerRef, static: true}) dynamicTarget: any;

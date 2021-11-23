@@ -30,14 +30,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/xdev-lib/tsconfig.lib.json",
-              "projects/xdev-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/xdev-lib/**/*.ts",
+              "projects/xdev-lib/**/*.html"
             ]
           }
         }
@@ -46,6 +43,7 @@
   },
   "defaultProject": "xdev-lib",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
