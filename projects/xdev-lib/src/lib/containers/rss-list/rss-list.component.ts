@@ -1,18 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NewsRss} from '../../../models/interfaces/rss';
 
 @Component({
-  selector: 'app-rss-list',
-  templateUrl: './rss-list.component.html',
-  styleUrls: ['./rss-list.component.scss']
+    selector: 'app-rss-list',
+    templateUrl: './rss-list.component.html',
+    styleUrls: ['./rss-list.component.scss']
 })
-export class RssListComponent implements OnInit {
+export class RssListComponent {
 
-  @Input() rssFeedData?: NewsRss = null;
+    @Input() rssFeedData?: NewsRss = null;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+    constructor() {
+    }
 
 }

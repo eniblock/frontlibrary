@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {IRssItem} from '../../../models/interfaces/rss';
 
 @Component({
@@ -6,7 +6,7 @@ import {IRssItem} from '../../../models/interfaces/rss';
     templateUrl: './rss-item.component.html',
     styleUrls: ['./rss-item.component.scss']
 })
-export class RssItemComponent implements OnInit {
+export class RssItemComponent {
 
     @Input() rssItem: IRssItem;
 
@@ -38,9 +38,6 @@ export class RssItemComponent implements OnInit {
     }
 
     constructor() {
-    }
-
-    ngOnInit(): void {
     }
 
 }

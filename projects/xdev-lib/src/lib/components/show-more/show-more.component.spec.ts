@@ -8,8 +8,9 @@ describe('ShowMoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowMoreComponent ]
-    })
+    declarations: [ShowMoreComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   }));
 

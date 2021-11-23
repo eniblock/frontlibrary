@@ -1,28 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-show-more',
-  templateUrl: './show-more.component.html',
-  styleUrls: ['./show-more.component.scss']
+    selector: 'app-show-more',
+    templateUrl: './show-more.component.html',
+    styleUrls: ['./show-more.component.scss']
 })
-export class ShowMoreComponent implements OnInit {
+export class ShowMoreComponent {
 
-  @Input() moreLabel: string;
-  @Input() lessLabel: string;
+    @Input() moreLabel: string;
+    @Input() lessLabel: string;
 
-  showMore = false;
+    showMore = false;
 
-  clickShowMore = () => {
-    this.showMore = true;
-  }
+    clickShowMore = () => {
+        this.showMore = true;
+    }
 
-  clickShowLess = () => {
-    this.showMore = false;
-  }
+    clickShowLess = () => {
+        this.showMore = false;
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+    constructor() {
+    }
 
 }

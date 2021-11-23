@@ -8,8 +8,9 @@ describe('BackTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackTitleComponent ]
-    })
+    declarations: [BackTitleComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   }));
 

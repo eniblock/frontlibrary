@@ -8,8 +8,9 @@ describe('SelectFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectFilterComponent ]
-    })
+    declarations: [SelectFilterComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

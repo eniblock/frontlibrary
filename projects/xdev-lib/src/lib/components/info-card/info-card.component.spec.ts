@@ -8,8 +8,9 @@ describe('InfoCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoCardComponent ]
-    })
+    declarations: [InfoCardComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   }));
 
