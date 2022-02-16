@@ -14,10 +14,11 @@ import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatColumnDef, MatTable, MatTableDataSource} from '@angular/material/table';
 import moment from 'moment';
-import {DataTableColumn, DataTableFilter, DataTableFilterType, isDataTableColumn} from './data-table.model';
-import {DataSource, isDataSource} from '@angular/cdk/collections';
-import {isObservable, Observable, Subject} from 'rxjs';
+import {isDataSource} from '@angular/cdk/collections';
+import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+
+import {DataTableColumn, DataTableFilter, DataTableFilterType, isDataTableColumn} from './data-table.model';
 
 @Component({
     selector: 'app-data-table',
@@ -49,18 +50,18 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     @ViewChild(MatTable, {static: true}) table: MatTable<any>;
     @ContentChildren(MatColumnDef) columnDefs: QueryList<MatColumnDef>;
 
-    private _data: MatTableDataSource<any> | DataSource<any>;
+    private _data: MatTableDataSource<any>;
 
     selectData = [];
     loadingData = [];
 
-    @Input() set data(values: MatTableDataSource<any> | DataSource<any>) {
+    @Input() set data(values: MatTableDataSource<any>) {
         if (values) {
             this._data = values;
         }
     }
 
-    get data(): MatTableDataSource<any> | DataSource<any> {
+    get data(): MatTableDataSource<any> {
         return this._data;
     }
 
@@ -90,6 +91,8 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     get filters(): DataTableFilter[] {
         return this._filters;
     }
+
+    DataTableFilterType = DataTableFilterType;
 
     filtersForm: FormGroup;
     dataTableColumns: DataTableColumn[];
@@ -135,7 +138,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
             if (i > 0) {
                 values += '$';
             }
-            if (filters[i].value.filter) {
+            if (filters[i].value.filter || typeof filters[i].value.filter === 'boolean') {
                 if (filters[i].value.filter instanceof moment) {
                     values += filters[i].value.filter.unix();
                 } else {
@@ -169,22 +172,6 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
             this.data.filter = values;
         } else if (isDataSource(this.data)) {
             this.filterChange.emit(filtersObject);
-        }
-    }
-
-    isObservable(input: any): boolean {
-        return isObservable(input);
-    }
-
-    loadOptions(opened: boolean, observable: Observable<any>, index: number): any {
-        if (opened) {
-            this.loadingData[index] = true;
-            observable.subscribe(data => {
-                this.selectData[index] = data;
-                this.loadingData[index] = false;
-            }, () => {
-                this.loadingData[index] = false;
-            });
         }
     }
 }

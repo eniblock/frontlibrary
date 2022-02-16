@@ -10,6 +10,18 @@
         width: 250px;
       }
     }
+
+    mat-slide-toggle {
+      color: #A0A3BD;
+
+      &:not(.mat-checked) {
+        ::ng-deep {
+          .mat-slide-toggle-bar {
+            background-color: #A0A3BD;
+          }
+        }
+      }
+    }
   }
 
   .table-container {
