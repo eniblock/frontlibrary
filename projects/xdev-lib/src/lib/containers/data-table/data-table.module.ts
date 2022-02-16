@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {DataTableComponent} from './data-table.component';
 import {CustomCellModule} from '../../components/custom-cell/custom-cell.module';
@@ -36,7 +37,8 @@ import {SelectFilterComponent} from './select-filter/select-filter.component';
         MatSortModule,
         CustomCellModule,
         MatProgressSpinnerModule,
-        FormsModule
+        FormsModule,
+        MatSlideToggleModule
     ],
     exports: [DataTableComponent]
 })

@@ -5,13 +5,13 @@
             <ng-container [formGroupName]="i">
 
                 <mat-form-field appearance="outline" class="form-field"
-                                *ngSwitchCase="'STRING'">
+                                *ngSwitchCase="DataTableFilterType.STRING">
                     <mat-icon matSuffix>search</mat-icon>
                     <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
                     <input matInput formControlName="filter" (keyup)="applyFilter()">
                 </mat-form-field>
 
-                <ng-container *ngSwitchCase="'SELECT'">
+                <ng-container *ngSwitchCase="DataTableFilterType.SELECT">
 
                     <app-select-filter [filter]="filter" formControlName="filter"
                                        (ngModelChange)="applyFilter()"></app-select-filter>
@@ -19,7 +19,7 @@
                 </ng-container>
 
                 <mat-form-field appearance="outline" class="form-field"
-                                *ngSwitchCase="'DATEPICKER'">
+                                *ngSwitchCase="DataTableFilterType.DATEPICKER">
                     <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
                     <input matInput [matDatepicker]="datepicker_i" formControlName="filter"
                            (dateChange)="applyFilter()">
@@ -28,7 +28,7 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="form-field daterange"
-                                *ngSwitchCase="'DATERANGEPICKER'">
+                                *ngSwitchCase="DataTableFilterType.DATERANGEPICKER">
                     <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
                     <mat-date-range-input [rangePicker]="daterangepicker_i">
                         <input matStartDate formControlName="startDate"
@@ -39,6 +39,11 @@
                     <mat-datepicker-toggle matSuffix [for]="daterangepicker_i"></mat-datepicker-toggle>
                     <mat-date-range-picker #daterangepicker_i></mat-date-range-picker>
                 </mat-form-field>
+
+                <mat-slide-toggle labelPosition="before" formControlName="filter" (change)="applyFilter()"
+                                  *ngSwitchCase="DataTableFilterType.TOGGLE">
+                    {{filter.displayName ? filter.displayName : filter.column}}
+                </mat-slide-toggle>
 
             </ng-container>
         </ng-container>

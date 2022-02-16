@@ -9,7 +9,7 @@ build:
   script:
     - npm install -g @angular/cli
     - npm install @angular-devkit/build-angular
-    - ng build --prod
+    - ng build -c production
   artifacts:
     paths:
       - dist/xdev-lib/*
