@@ -17,6 +17,10 @@
       "dom"
     ],
     "paths": {
+      "eniblock": [
+        "dist/eniblock/eniblock",
+        "dist/eniblock"
+      ],
       "xdev-lib": [
         "dist/xdev-lib/xdev-lib",
         "dist/xdev-lib"
