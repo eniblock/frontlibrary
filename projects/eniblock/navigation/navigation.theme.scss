@@ -1,0 +1,71 @@
+@use '@angular/material' as mat;
+@import '../variables';
+
+@mixin navigation-theme($theme) {
+  $accent: mat.get-color-from-palette(map-get($theme, accent));
+
+  #eniblockNavigation {
+    .eni-navigation-collapsable-item,
+    .eni-navigation-item {
+      .nav-link {
+        text-decoration: none !important;
+        display: flex;
+        align-items: center;
+        height: 58px;
+        padding: 0 24px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+        color: $color-label;
+        font-size: 16px;
+        font-weight: 600;
+
+        > .nav-link-title {
+          flex: 1 1 auto;
+          white-space: nowrap;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .mat-ripple-element {
+          background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        &.active {
+          color: $accent;
+
+          .nav-link-icon {
+            opacity: 1;
+            fill: $accent;
+            stroke: $accent;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            height: 60%;
+            width: 3px;
+            background-color: $accent;
+            border-radius: 0 100px 100px 0;
+            left: 0;
+          }
+        }
+
+        .nav-link-icon {
+          margin-right: 16px;
+          font-size: 24px;
+          width: 24px;
+          height: 24px;
+          min-width: 24px;
+          min-height: 24px;
+          line-height: 24px;
+          fill: $color-label;
+          stroke: $color-label;
+        }
+      }
+    }
+  }
+}

@@ -4,24 +4,41 @@ stages:
   - build
   - deploy
 
-build:
+build-xdev-lib:
   stage: build
   script:
     - npm install -g @angular/cli
     - npm install @angular-devkit/build-angular
-    - ng build -c production
+    - ng build xdev-lib -c production
   artifacts:
     paths:
       - dist/xdev-lib/*
     expire_in: 1 week
-
-deploy:
-  stage: deploy
   only:
-    - develop
+    changes:
+      - projects/xdev-lib/*
+
+build-eniblock:
+  stage: build
   script:
-    - cd dist/xdev-lib
-    - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
-    - npm publish
-  dependencies:
-    - build
+    - npm install -g @angular/cli
+    - npm install @angular-devkit/build-angular
+    - ng build eniblock -c production
+  artifacts:
+    paths:
+      - dist/xdev-lib/*
+    expire_in: 1 week
+  only:
+    changes:
+      - projects/eniblock/*
+
+#deploy:
+#  stage: deploy
+#  only:
+#    - develop
+#  script:
+#    - cd dist/xdev-lib
+#    - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" > .npmrc
+#    - npm publish
+#  dependencies:
+#    - build

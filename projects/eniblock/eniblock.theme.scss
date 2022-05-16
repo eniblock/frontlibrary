@@ -1,0 +1,5 @@
+@import 'navigation/navigation.theme';
+
+@mixin eniblock-theme($app-theme) {
+  @include navigation-theme($app-theme);
+}

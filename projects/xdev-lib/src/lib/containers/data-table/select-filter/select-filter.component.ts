@@ -28,7 +28,7 @@ export class SelectFilterComponent implements ControlValueAccessor, OnDestroy {
     data: any;
     loading: boolean;
     isOpen: boolean;
-    _unsubscribeAll = new Subject();
+    _unsubscribeAll = new Subject<void>();
 
     constructor() {
     }

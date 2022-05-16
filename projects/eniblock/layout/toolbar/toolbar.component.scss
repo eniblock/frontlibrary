@@ -1,0 +1,13 @@
+#toolbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+
+@media screen and (min-width: 1281px) {
+  .menu-icon {
+    display: none;
+  }
+}

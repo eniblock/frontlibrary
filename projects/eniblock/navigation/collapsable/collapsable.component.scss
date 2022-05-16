@@ -1,0 +1,12 @@
+.eni-navigation-collapsable-item {
+  > .children {
+    overflow: hidden;
+
+    ::ng-deep {
+      .nav-link {
+        padding-left: 50px !important;
+        height: 35px !important;
+      }
+    }
+  }
+}

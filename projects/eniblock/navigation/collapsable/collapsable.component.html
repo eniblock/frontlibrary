@@ -1,0 +1,32 @@
+<div class="eni-navigation-collapsable-item" *ngIf="!item.hidden">
+
+    <!-- normal collapsable -->
+    <a (click)="toggleOpen($event)" *ngIf="!item.url" [ngClass]="item.classes"
+       class="nav-link">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.url -->
+    <a (click)="toggleOpen($event)" *ngIf="item.url" [ngClass]="item.classes"
+       [queryParams]="item.queryParams"
+       [routerLinkActive]="['active']"
+       [routerLink]="[item.url]"
+       class="nav-link">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <ng-template #itemContent>
+        <!--        <mat-icon *ngIf="item.svg && item.icon && item.active" [svgIcon]="item.iconActive"-->
+        <!--                  class="nav-link-icon"></mat-icon>-->
+        <mat-icon *ngIf="item.svg && item.icon" [svgIcon]="item.icon" class="nav-link-icon"></mat-icon>
+        <mat-icon *ngIf="!item.svg && item.icon" class="nav-link-icon">{{item.icon}}</mat-icon>
+        <span class="nav-link-title">{{(item.translate | translate) || item.title}}</span>
+    </ng-template>
+
+    <div [@slideInOut]="isOpen" class="children">
+        <ng-container *ngFor="let item of item.children">
+            <eni-nav-item *ngIf="item.type==='item'" [item]="item"></eni-nav-item>
+        </ng-container>
+    </div>
+
+</div>

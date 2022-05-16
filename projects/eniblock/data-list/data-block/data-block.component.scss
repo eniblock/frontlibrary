@@ -1,0 +1,47 @@
+@import '../../variables';
+
+:host {
+  display: block;
+  margin-bottom: 20px;
+
+  ::ng-deep {
+    .eni-data {
+      display: flex;
+
+      .eni-data-key {
+        display: flex;
+        align-items: center;
+        width: 180px;
+        padding: 20px 15px;
+        background-color: $color-background;
+        color: $color-label;
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 22px;
+      }
+
+      &:first-child {
+        .eni-data-key {
+          border-top-left-radius: 8px;
+        }
+      }
+
+      &:last-child {
+        .eni-data-key {
+          border-bottom-left-radius: 8px;
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: solid 1px $color-line;
+      }
+
+      .eni-data-value {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        color: $color-label;
+      }
+    }
+  }
+}
