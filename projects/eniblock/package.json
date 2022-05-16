@@ -1,5 +1,5 @@
 {
-  "name": "@eniblock/ui",
+  "name": "@the-blockchain-xdev/eniblock-ui",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^13.0.0",
@@ -9,6 +9,6 @@
     "tslib": "^2.3.0"
   },
   "publishConfig": {
-    "@eniblock:registry": "https://gitlab.com/api/v4/projects/19142682/packages/npm/"
+    "@the-blockchain-xdev:registry": "https://gitlab.com/api/v4/projects/19142682/packages/npm/"
   }
 }
