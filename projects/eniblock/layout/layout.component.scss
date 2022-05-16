@@ -1,0 +1,26 @@
+$toolbar-height: 80px;
+$sidenav-width: 280px;
+
+.toolbar {
+  position: relative;
+  height: $toolbar-height;
+  box-shadow: 0 4px 10px #00000014;
+  z-index: 2;
+}
+
+.container {
+  position: absolute;
+  top: $toolbar-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sidenav {
+  width: $sidenav-width;
+  border: none;
+}
+
+.content {
+  padding: 35px 40px;
+}

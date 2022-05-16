@@ -1,0 +1,16 @@
+<div class="eni-navigation-item" *ngIf="!item.hidden">
+
+    <a *ngIf="item.url" [ngClass]="item.classes" [queryParams]="item.queryParams"
+       [routerLinkActive]="['active']"
+       [routerLink]="[item.url]"
+       class="nav-link">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <ng-template #itemContent>
+        <mat-icon *ngIf="item.svg && item.icon" [svgIcon]="item.icon" class="nav-link-icon"></mat-icon>
+        <mat-icon *ngIf="!item.svg && item.icon" class="nav-link-icon">{{item.icon}}</mat-icon>
+        <span class="nav-link-title">{{(item.translate | translate) || item.title}}</span>
+    </ng-template>
+
+</div>

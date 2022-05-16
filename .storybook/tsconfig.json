@@ -1,0 +1,21 @@
+{
+  "extends": "../projects/eniblock/tsconfig.lib.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "../projects/**/test.ts",
+    "../projects/**/*.spec.ts",
+    "../projects/**/*.spec.ts"
+  ],
+  "include": [
+    "../projects/eniblock/**/*",
+    "../stories/**/*"
+  ],
+  "files": [
+    "./typings.d.ts"
+  ]
+}

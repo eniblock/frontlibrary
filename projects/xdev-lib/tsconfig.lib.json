@@ -6,7 +6,10 @@
     "declarationMap": true,
     "declaration": true,
     "inlineSources": true,
-    "types" : ["node", "lodash"],
+    "types": [
+      "node",
+      "lodash"
+    ],
     "lib": [
       "dom",
       "es2018"

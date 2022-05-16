@@ -1,0 +1,13 @@
+<div id="eniblockNavigation" class="nav">
+
+    <ng-container *ngFor="let item of navigation">
+
+        <eni-nav-group *ngIf="item.type==='group'" [item]="item"></eni-nav-group>
+        <eni-nav-collapsable *ngIf="item.type==='collapsable'"
+                             [item]="item"></eni-nav-collapsable>
+        <eni-nav-item *ngIf="item.type==='item'" [item]="item"
+                      [ngClass]="item.classes"></eni-nav-item>
+
+    </ng-container>
+
+</div>

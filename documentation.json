@@ -1,0 +1,2081 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "NavigationItem",
+            "id": "interface-NavigationItem-4144c456e041c8feeb5414f9b2155dc4cbfa23728e6df8b3cc68ebbfba2be8e11533a78fab4a6e3abf463299f64a00da11dd7ce3d19f88158e54d98f545cb946",
+            "file": "projects/eniblock/navigation/models/navigation-item.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface NavigationItem {\n    id: string;\n    title: string;\n    type: 'item' | 'group' | 'collapsable';\n    translate?: string;\n    svg?: boolean;\n    icon?: string;\n    iconActive?: string;\n    active?: boolean;\n    hidden?: boolean;\n    url?: string;\n    queryParams?: any;\n    classes?: string;\n    children?: NavigationItem[];\n}\n",
+            "properties": [
+                {
+                    "name": "active",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "children",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "NavigationItem[]",
+                    "optional": true,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "classes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "hidden",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "iconActive",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "queryParams",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": true,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "svg",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "translate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"item\" | \"group\" | \"collapsable\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "url",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "LayoutService",
+            "id": "injectable-LayoutService-67a46d137f1a13e5845eb16f1c0e5c86eddd3c66215851a1f9fb9a42a3c75a2c52eb2b7ebb1b2582d210808e6800732272bd14e8fb04d065cb914de99d75ffe3",
+            "file": "projects/eniblock/layout/layout.service.ts",
+            "properties": [
+                {
+                    "name": "_$sidenavOpened",
+                    "defaultValue": "this.sidenavOpened.asObservable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "sidenavOpened",
+                    "defaultValue": "new BehaviorSubject<boolean>(false)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "toggleSidenav",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Injectable} from '@angular/core';\nimport {BehaviorSubject, Observable} from 'rxjs';\n\n@Injectable({\n    providedIn: 'root'\n})\nexport class LayoutService {\n    private sidenavOpened = new BehaviorSubject<boolean>(false);\n    private _$sidenavOpened = this.sidenavOpened.asObservable();\n\n    get $sidenavOpened(): Observable<boolean> {\n        return this._$sidenavOpened;\n    }\n\n    constructor() {\n    }\n\n    toggleSidenav(value?: boolean): void {\n        if (typeof value === 'boolean') {\n            this.sidenavOpened.next(value);\n        } else {\n            this.sidenavOpened.next(!this.sidenavOpened.value);\n        }\n    }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "accessors": {
+                "$sidenavOpened": {
+                    "name": "$sidenavOpened",
+                    "getSignature": {
+                        "name": "$sidenavOpened",
+                        "type": "",
+                        "returnType": "Observable<boolean>",
+                        "line": 11
+                    }
+                }
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "Eniblock",
+            "id": "class-Eniblock-decb17ff4a399a913f7d49847a286feb3091e6fdfd7eb7972dbb4db02c187e5ff15dff5e3531ec128349df999497244deebf1d0690d84af2dc8220e16bd94bac",
+            "file": "projects/eniblock/public-api.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class Eniblock {\n}\n",
+            "properties": [],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [
+        {
+            "name": "EniData",
+            "id": "directive-EniData-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
+            "file": "projects/eniblock/data-list/data-block/data-block.component.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Component, Directive} from '@angular/core';\n\n@Directive({\n    selector: '[eni-data]',\n    host: {'class': 'eni-data'},\n})\nexport class EniData {\n}\n\n@Directive({\n    selector: '[eni-data-key]',\n    host: {'class': 'eni-data-key'},\n})\nexport class EniDataKey {\n}\n\n@Directive({\n    selector: '[eni-data-value]',\n    host: {'class': 'eni-data-value'},\n})\nexport class EniDataValue {\n}\n\n@Component({\n    selector: 'eni-data-block',\n    templateUrl: './data-block.component.html',\n    styleUrls: ['./data-block.component.scss']\n})\nexport class DataBlockComponent {\n}\n\n",
+            "selector": "[eni-data]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": []
+        },
+        {
+            "name": "EniDataKey",
+            "id": "directive-EniDataKey-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
+            "file": "projects/eniblock/data-list/data-block/data-block.component.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Component, Directive} from '@angular/core';\n\n@Directive({\n    selector: '[eni-data]',\n    host: {'class': 'eni-data'},\n})\nexport class EniData {\n}\n\n@Directive({\n    selector: '[eni-data-key]',\n    host: {'class': 'eni-data-key'},\n})\nexport class EniDataKey {\n}\n\n@Directive({\n    selector: '[eni-data-value]',\n    host: {'class': 'eni-data-value'},\n})\nexport class EniDataValue {\n}\n\n@Component({\n    selector: 'eni-data-block',\n    templateUrl: './data-block.component.html',\n    styleUrls: ['./data-block.component.scss']\n})\nexport class DataBlockComponent {\n}\n\n",
+            "selector": "[eni-data-key]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": []
+        },
+        {
+            "name": "EniDataValue",
+            "id": "directive-EniDataValue-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
+            "file": "projects/eniblock/data-list/data-block/data-block.component.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Component, Directive} from '@angular/core';\n\n@Directive({\n    selector: '[eni-data]',\n    host: {'class': 'eni-data'},\n})\nexport class EniData {\n}\n\n@Directive({\n    selector: '[eni-data-key]',\n    host: {'class': 'eni-data-key'},\n})\nexport class EniDataKey {\n}\n\n@Directive({\n    selector: '[eni-data-value]',\n    host: {'class': 'eni-data-value'},\n})\nexport class EniDataValue {\n}\n\n@Component({\n    selector: 'eni-data-block',\n    templateUrl: './data-block.component.html',\n    styleUrls: ['./data-block.component.scss']\n})\nexport class DataBlockComponent {\n}\n\n",
+            "selector": "[eni-data-value]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": []
+        }
+    ],
+    "components": [
+        {
+            "name": "DataBlockComponent",
+            "id": "component-DataBlockComponent-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
+            "file": "projects/eniblock/data-list/data-block/data-block.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-data-block",
+            "styleUrls": [
+                "./data-block.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./data-block.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Directive} from '@angular/core';\n\n@Directive({\n    selector: '[eni-data]',\n    host: {'class': 'eni-data'},\n})\nexport class EniData {\n}\n\n@Directive({\n    selector: '[eni-data-key]',\n    host: {'class': 'eni-data-key'},\n})\nexport class EniDataKey {\n}\n\n@Directive({\n    selector: '[eni-data-value]',\n    host: {'class': 'eni-data-value'},\n})\nexport class EniDataValue {\n}\n\n@Component({\n    selector: 'eni-data-block',\n    templateUrl: './data-block.component.html',\n    styleUrls: ['./data-block.component.scss']\n})\nexport class DataBlockComponent {\n}\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '../../variables';\n\n:host {\n  display: block;\n  margin-bottom: 20px;\n\n  ::ng-deep {\n    .eni-data {\n      display: flex;\n\n      .eni-data-key {\n        display: flex;\n        align-items: center;\n        width: 180px;\n        padding: 20px 15px;\n        background-color: $color-background;\n        color: $color-label;\n        font-weight: 800;\n        font-size: 13px;\n        line-height: 22px;\n      }\n\n      &:first-child {\n        .eni-data-key {\n          border-top-left-radius: 8px;\n        }\n      }\n\n      &:last-child {\n        .eni-data-key {\n          border-bottom-left-radius: 8px;\n        }\n      }\n\n      &:not(:last-child) {\n        border-bottom: solid 1px $color-line;\n      }\n\n      .eni-data-value {\n        display: flex;\n        align-items: center;\n        padding: 0 15px;\n        color: $color-label;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./data-block.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ng-content select=\"[eni-data]\"></ng-content>\n<ng-content></ng-content>\n"
+        },
+        {
+            "name": "DataListComponent",
+            "id": "component-DataListComponent-f88faac6126d563fdad339c764130b90c9fcdcc460a60f2af84fc3589c7041ddcef35fe0f17e73ed3d8dae6f07add3283b02bbf61cfe43dadae7f7d84128becb",
+            "file": "projects/eniblock/data-list/data-list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-data-list",
+            "styleUrls": [
+                "./data-list.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./data-list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eni-data-list',\n  templateUrl: './data-list.component.html',\n  styleUrls: ['./data-list.component.scss']\n})\nexport class DataListComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./data-list.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "LayoutComponent",
+            "id": "component-LayoutComponent-618d7a0ea190ad0cc65ff04607f83580ac339e624d4f9bc8a570a68a3b0cfcc40e3128c952532520c4d90591cbce063fef903b51ac6ec0c3fe66ad39edcb843c",
+            "file": "projects/eniblock/layout/layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-layout",
+            "styleUrls": [
+                "./layout.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./layout.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_unsubscribeAll",
+                    "defaultValue": "new Subject<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "$sidenavOpened",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "sidenav",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatSidenav",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatSidenav"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "sidebarOpenedChange",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';\nimport {BreakpointObserver} from '@angular/cdk/layout';\n\nimport {LayoutService} from './layout.service';\nimport {delay, Observable, Subject, takeUntil} from 'rxjs';\nimport {MatSidenav} from '@angular/material/sidenav';\n\n@Component({\n    selector: 'eni-layout',\n    templateUrl: './layout.component.html',\n    styleUrls: ['./layout.component.scss']\n})\nexport class LayoutComponent implements AfterViewInit, OnDestroy {\n\n    @ViewChild(MatSidenav) sidenav!: MatSidenav;\n    $sidenavOpened: Observable<boolean>;\n\n    _unsubscribeAll = new Subject<void>();\n\n    constructor(\n        private _layoutService: LayoutService,\n        private _observer: BreakpointObserver\n    ) {\n        this.$sidenavOpened = this._layoutService.$sidenavOpened;\n    }\n\n    ngAfterViewInit(): void {\n        this._observer.observe(['(max-width: 1280px)'])\n            .pipe(delay(1), takeUntil(this._unsubscribeAll))\n            .subscribe(response => {\n                if (response.matches) {\n                    this.sidenav.mode = 'over';\n                    this.sidenav.close();\n                } else {\n                    this.sidenav.mode = 'side';\n                    this.sidenav.open();\n                }\n            });\n    }\n\n    sidebarOpenedChange(value: boolean): void {\n        this._layoutService.toggleSidenav(value);\n    }\n\n    ngOnDestroy(): void {\n        this._unsubscribeAll.next();\n        this._unsubscribeAll.complete();\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "$toolbar-height: 80px;\n$sidenav-width: 280px;\n\n.toolbar {\n  position: relative;\n  height: $toolbar-height;\n  box-shadow: 0 4px 10px #00000014;\n  z-index: 2;\n}\n\n.container {\n  position: absolute;\n  top: $toolbar-height;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.sidenav {\n  width: $sidenav-width;\n  border: none;\n}\n\n.content {\n  padding: 35px 40px;\n}\n",
+                    "styleUrl": "./layout.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_layoutService",
+                        "type": "LayoutService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_observer",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "_layoutService",
+                        "type": "LayoutService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "_observer",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "AfterViewInit",
+                "OnDestroy"
+            ],
+            "templateData": "<mat-toolbar class=\"toolbar\">\n    <eni-toolbar></eni-toolbar>\n</mat-toolbar>\n\n<mat-sidenav-container class=\"container\">\n    <mat-sidenav #sidenav [opened]=\"$sidenavOpened | async\" (openedChange)=\"sidebarOpenedChange($event)\"\n                 class=\"sidenav\">\n        <eni-sidebar><ng-content select=\"[sidebar]\"></ng-content></eni-sidebar>\n    </mat-sidenav>\n\n    <mat-sidenav-content class=\"content\">\n        <ng-content></ng-content>\n    </mat-sidenav-content>\n</mat-sidenav-container>\n"
+        },
+        {
+            "name": "NavigationCollapsableComponent",
+            "id": "component-NavigationCollapsableComponent-9dde6c564a4a383ce1b0fc70d54959b5ce33271ac6bbbb2fc5108b333c777691b3f02ade429115255273dc63547ccb5b21c89dad3f1ce178a7e41356edd7f6cd",
+            "file": "projects/eniblock/navigation/collapsable/collapsable.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-nav-collapsable",
+            "styleUrls": [
+                "./collapsable.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./collapsable.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "item",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "NavigationItem",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_unsubscribeAll",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subject<void>",
+                    "optional": false,
+                    "description": "",
+                    "line": 35,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "classes",
+                    "defaultValue": "'nav-collapsable nav-item'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 30,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ]
+                },
+                {
+                    "name": "isOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class.open'"
+                        }
+                    ],
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "collapse",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 133,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nCollapse the collapsable navigation\n",
+                    "description": "<p>Collapse the collapsable navigation</p>\n"
+                },
+                {
+                    "name": "expand",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 119,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nExpand the collapsable navigation\n",
+                    "description": "<p>Expand the collapsable navigation</p>\n"
+                },
+                {
+                    "name": "getCompleteUrl",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 204,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "isChildrenOf",
+                    "args": [
+                        {
+                            "name": "parent",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "item",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 152,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nCheck if the given parent has the\ngiven item in one of its children\n\n",
+                    "description": "<p>Check if the given parent has the\ngiven item in one of its children</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 4216,
+                                "end": 4222,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "parent"
+                            },
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 4210,
+                                "end": 4215,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "name": {
+                                "pos": 4237,
+                                "end": 4241,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "item"
+                            },
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 4231,
+                                "end": 4236,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "tagName": {
+                                "pos": 4250,
+                                "end": 4257,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "returns"
+                            },
+                            "comment": "",
+                            "returnType": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "isUrlInChildren",
+                    "args": [
+                        {
+                            "name": "parent",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "url",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 182,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nCheck if the given url can be found\nin one of the given parent's children\n\n",
+                    "description": "<p>Check if the given url can be found\nin one of the given parent&#39;s children</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 4852,
+                                "end": 4858,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "parent"
+                            },
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 4846,
+                                "end": 4851,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "name": {
+                                "pos": 4873,
+                                "end": 4876,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "url"
+                            },
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 4867,
+                                "end": 4872,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        },
+                        {
+                            "tagName": {
+                                "pos": 4885,
+                                "end": 4892,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "returns"
+                            },
+                            "comment": "",
+                            "returnType": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 95,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOn destroy\n",
+                    "description": "<p>On destroy</p>\n"
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOn init\n",
+                    "description": "<p>On init</p>\n"
+                },
+                {
+                    "name": "toggleOpen",
+                    "args": [
+                        {
+                            "name": "ev",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 110,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nToggle collapse\n\n",
+                    "description": "<p>Toggle collapse</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 3496,
+                                "end": 3498,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "ev"
+                            },
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "pos": 3490,
+                                "end": 3495,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 79,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'nav-collapsable nav-item'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "class.open",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Location} from '@angular/common';\nimport {ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';\nimport {NavigationEnd, Router} from '@angular/router';\nimport {Subject} from 'rxjs';\nimport {filter, takeUntil} from 'rxjs/operators';\nimport {animate, state, style, transition, trigger} from '@angular/animations';\n\nimport {NavigationItem} from '../models/navigation-item';\n\n@Component({\n    selector: 'eni-nav-collapsable',\n    templateUrl: './collapsable.component.html',\n    styleUrls: ['./collapsable.component.scss'],\n    animations: [\n        trigger('slideInOut', [\n            state('0', style({\n                height: '0px'\n            })),\n            state('1', style({\n                height: '*'\n            })),\n            transition('1 => 0', animate('300ms ease-out')),\n            transition('0 => 1', animate('300ms ease-in'))\n        ])\n    ]\n})\nexport class NavigationCollapsableComponent implements OnInit, OnDestroy {\n    @Input() item: NavigationItem;\n\n    @HostBinding('class') classes = 'nav-collapsable nav-item';\n\n    @HostBinding('class.open') public isOpen = false;\n\n    // Private\n    private _unsubscribeAll: Subject<void>;\n\n    /**\n     * Constructor\n     *\n     * @param {ChangeDetectorRef} _changeDetectorRef\n     * @param {Router} _router\n     * @param {Location} _location\n     */\n    constructor(\n        private _changeDetectorRef: ChangeDetectorRef,\n        private _router: Router,\n        private _location: Location\n    ) {\n        // Set the private defaults\n        this._unsubscribeAll = new Subject();\n    }\n\n    // -----------------------------------------------------------------------------------------------------\n    // @ Lifecycle hooks\n    // -----------------------------------------------------------------------------------------------------\n\n    /**\n     * On init\n     */\n    ngOnInit(): void {\n        // Listen for router events\n        this._router.events\n            .pipe(\n                filter(event => event instanceof NavigationEnd),\n                takeUntil(this._unsubscribeAll)\n            )\n            .subscribe((event: NavigationEnd) => {\n\n                // Check if the url can be found in\n                // one of the children of this item\n                // or in the item itself\n                if (event.urlAfterRedirects.includes(this.getCompleteUrl(this.item)) ||\n                    this.isUrlInChildren(this.item, event.urlAfterRedirects)) {\n                    this.expand();\n                    this.item.active = true;\n                } else {\n                    this.collapse();\n                    this.item.active = false;\n                }\n            });\n\n        // Check if the url can be found in\n        // one of the children of this item\n        if (this._router.url.includes(this.getCompleteUrl(this.item)) ||\n            this.isUrlInChildren(this.item, this._router.url)) {\n            this.expand();\n        } else {\n            this.collapse();\n        }\n    }\n\n    /**\n     * On destroy\n     */\n    ngOnDestroy(): void {\n        // Unsubscribe from all subscriptions\n        this._unsubscribeAll.next();\n        this._unsubscribeAll.complete();\n    }\n\n    // -----------------------------------------------------------------------------------------------------\n    // @ Public methods\n    // -----------------------------------------------------------------------------------------------------\n\n    /**\n     * Toggle collapse\n     *\n     * @param ev\n     */\n    toggleOpen(ev): void {\n        ev.preventDefault();\n\n        this.isOpen = !this.isOpen;\n    }\n\n    /**\n     * Expand the collapsable navigation\n     */\n    expand(): void {\n        if (this.isOpen) {\n            return;\n        }\n\n        this.isOpen = true;\n\n        // Mark for check\n        this._changeDetectorRef.markForCheck();\n    }\n\n    /**\n     * Collapse the collapsable navigation\n     */\n    collapse(): void {\n        if (!this.isOpen) {\n            return;\n        }\n\n        this.isOpen = false;\n\n        // Mark for check\n        this._changeDetectorRef.markForCheck();\n    }\n\n    /**\n     * Check if the given parent has the\n     * given item in one of its children\n     *\n     * @param parent\n     * @param item\n     * @returns {boolean}\n     */\n    isChildrenOf(parent, item): boolean {\n        const children = parent.children;\n\n        if (!children) {\n            return false;\n        }\n\n        if (children.indexOf(item) > -1) {\n            return true;\n        }\n\n        for (const child of children) {\n            if (child.children) {\n                if (this.isChildrenOf(child, item)) {\n                    return true;\n                }\n            }\n        }\n\n        return false;\n    }\n\n    /**\n     * Check if the given url can be found\n     * in one of the given parent's children\n     *\n     * @param parent\n     * @param url\n     * @returns {boolean}\n     */\n    isUrlInChildren(parent, url): boolean {\n        const children = parent.children;\n\n        if (!children) {\n            return false;\n        }\n\n        for (const child of children) {\n            if (child.children) {\n                if (this.isUrlInChildren(child, url)) {\n                    return true;\n                }\n            }\n\n            if (child.url === url || url.includes(child.url)) {\n                return true;\n            }\n        }\n\n        return false;\n    }\n\n    getCompleteUrl(item): string {\n        let itemUrl = item.url;\n        if (item.queryParams) {\n            itemUrl += '?';\n            Object.keys(item.queryParams).map((key, index) => {\n                itemUrl += (index > 0 ? '&' : '') + key + '=' + item.queryParams[key];\n            });\n        }\n        return itemUrl;\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".eni-navigation-collapsable-item {\n  > .children {\n    overflow: hidden;\n\n    ::ng-deep {\n      .nav-link {\n        padding-left: 50px !important;\n        height: 35px !important;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./collapsable.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "<p>Constructor</p>\n",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_changeDetectorRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_location",
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 35,
+                "rawdescription": "\n\nConstructor\n\n",
+                "jsdoctags": [
+                    {
+                        "name": {
+                            "pos": 1267,
+                            "end": 1285,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "_changeDetectorRef"
+                        },
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "pos": 1241,
+                            "end": 1246,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "param"
+                        },
+                        "comment": "",
+                        "typeExpression": {
+                            "pos": 1247,
+                            "end": 1266,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 307,
+                            "type": {
+                                "pos": 1248,
+                                "end": 1265,
+                                "flags": 4194304,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 1,
+                                "kind": 177,
+                                "typeName": {
+                                    "pos": 1248,
+                                    "end": 1265,
+                                    "flags": 4194304,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 0,
+                                    "kind": 79,
+                                    "escapedText": "ChangeDetectorRef"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": {
+                            "pos": 1309,
+                            "end": 1316,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "_router"
+                        },
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "pos": 1294,
+                            "end": 1299,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "param"
+                        },
+                        "comment": "",
+                        "typeExpression": {
+                            "pos": 1300,
+                            "end": 1308,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 307,
+                            "type": {
+                                "pos": 1301,
+                                "end": 1307,
+                                "flags": 4194304,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 1,
+                                "kind": 177,
+                                "typeName": {
+                                    "pos": 1301,
+                                    "end": 1307,
+                                    "flags": 4194304,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 0,
+                                    "kind": 79,
+                                    "escapedText": "Router"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": {
+                            "pos": 1342,
+                            "end": 1351,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "_location"
+                        },
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "pos": 1325,
+                            "end": 1330,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 79,
+                            "escapedText": "param"
+                        },
+                        "comment": "",
+                        "typeExpression": {
+                            "pos": 1331,
+                            "end": 1341,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 307,
+                            "type": {
+                                "pos": 1332,
+                                "end": 1340,
+                                "flags": 4194304,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 1,
+                                "kind": 177,
+                                "typeName": {
+                                    "pos": 1332,
+                                    "end": 1340,
+                                    "flags": 4194304,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 0,
+                                    "kind": 79,
+                                    "escapedText": "Location"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<div class=\"eni-navigation-collapsable-item\" *ngIf=\"!item.hidden\">\n\n    <!-- normal collapsable -->\n    <a (click)=\"toggleOpen($event)\" *ngIf=\"!item.url\" [ngClass]=\"item.classes\"\n       class=\"nav-link\">\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <!-- item.url -->\n    <a (click)=\"toggleOpen($event)\" *ngIf=\"item.url\" [ngClass]=\"item.classes\"\n       [queryParams]=\"item.queryParams\"\n       [routerLinkActive]=\"['active']\"\n       [routerLink]=\"[item.url]\"\n       class=\"nav-link\">\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <!--        <mat-icon *ngIf=\"item.svg && item.icon && item.active\" [svgIcon]=\"item.iconActive\"-->\n        <!--                  class=\"nav-link-icon\"></mat-icon>-->\n        <mat-icon *ngIf=\"item.svg && item.icon\" [svgIcon]=\"item.icon\" class=\"nav-link-icon\"></mat-icon>\n        <mat-icon *ngIf=\"!item.svg && item.icon\" class=\"nav-link-icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\">{{(item.translate | translate) || item.title}}</span>\n    </ng-template>\n\n    <div [@slideInOut]=\"isOpen\" class=\"children\">\n        <ng-container *ngFor=\"let item of item.children\">\n            <eni-nav-item *ngIf=\"item.type==='item'\" [item]=\"item\"></eni-nav-item>\n        </ng-container>\n    </div>\n\n</div>\n"
+        },
+        {
+            "name": "NavigationComponent",
+            "id": "component-NavigationComponent-c5672dc80847bb046b07bed36ca52d83b42e51f9866de908db80f0584218e9d59bfcd1c369de865848cc714c272d34a548e4a06e7929df471208cf109743acd1",
+            "file": "projects/eniblock/navigation/navigation.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-navigation",
+            "styleUrls": [
+                "./navigation.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./navigation.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "navigation",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "NavigationItem[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {NavigationItem} from './models/navigation-item';\n\n@Component({\n    selector: 'eni-navigation',\n    templateUrl: './navigation.component.html',\n    styleUrls: ['./navigation.component.scss']\n})\nexport class NavigationComponent {\n\n    @Input() navigation: NavigationItem[];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".nav {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n\n  display: flex;\n  flex-direction: column;\n\n}\n",
+                    "styleUrl": "./navigation.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div id=\"eniblockNavigation\" class=\"nav\">\n\n    <ng-container *ngFor=\"let item of navigation\">\n\n        <eni-nav-group *ngIf=\"item.type==='group'\" [item]=\"item\"></eni-nav-group>\n        <eni-nav-collapsable *ngIf=\"item.type==='collapsable'\"\n                             [item]=\"item\"></eni-nav-collapsable>\n        <eni-nav-item *ngIf=\"item.type==='item'\" [item]=\"item\"\n                      [ngClass]=\"item.classes\"></eni-nav-item>\n\n    </ng-container>\n\n</div>\n"
+        },
+        {
+            "name": "NavigationGroupComponent",
+            "id": "component-NavigationGroupComponent-5720e46c5882be20a816921dac28c006b09a383caab1142a83df005590d12d22b482ffaf95fd98995566d35156fcac2def918dbdf056966fd7ff774c7ec57b8a",
+            "file": "projects/eniblock/navigation/group/group.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-nav-group",
+            "styleUrls": [
+                "./group.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./group.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "item",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "NavigationItem",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {NavigationItem} from '../models/navigation-item';\n\n@Component({\n    selector: 'eni-nav-group',\n    templateUrl: './group.component.html',\n    styleUrls: ['./group.component.scss']\n})\nexport class NavigationGroupComponent {\n    @Input() item: NavigationItem;\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '../../variables';\n\n:host {\n  display: block;\n\n  .group-title {\n    position: relative;\n    display: flex;\n    align-items: center;\n    height: 48px;\n    font-weight: 600;\n    padding-left: 24px;\n    margin-top: 8px;\n    font-size: 12px;\n    white-space: nowrap;\n    text-transform: uppercase;\n  }\n}\n\n.hint-text {\n  font-size: 15px;\n  font-weight: 700;\n  color: $color-placeholder;\n}\n\n.separator {\n  width: 230px;\n  border-top: solid 1px $color-line;\n}\n",
+                    "styleUrl": "./group.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ng-container *ngIf=\"!item.hidden\">\n\n    <div [ngClass]=\"item.classes\" class=\"group-title\">\n        <span [translate]=\"item.translate\" class=\"hint-text\">{{(item.translate | translate) || item.title}}</span>\n    </div>\n\n    <div class=\"group-items\">\n        <ng-container *ngFor=\"let item of item.children\">\n            <eni-nav-collapsable *ngIf=\"item.type==='collapsable'\"\n                                 [item]=\"item\"></eni-nav-collapsable>\n            <eni-nav-item *ngIf=\"item.type==='item'\" [item]=\"item\"></eni-nav-item>\n        </ng-container>\n    </div>\n\n    <div class=\"separator\"></div>\n\n</ng-container>\n"
+        },
+        {
+            "name": "NavigationItemComponent",
+            "id": "component-NavigationItemComponent-db292bf0fa76a0cc99d0394d8c5d18efe76b4617d7a77c68379ffaa6c971d16ee2edc8e9957cd59218a60e41ca595302ff71d3a80850ea8e935d11a71bce4860",
+            "file": "projects/eniblock/navigation/item/item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-nav-item",
+            "styleUrls": [
+                "./item.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "item",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "NavigationItem",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_unsubscribeAll",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subject<void>",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';\nimport {Location} from '@angular/common';\nimport {Subject} from 'rxjs';\nimport {takeUntil} from 'rxjs/operators';\nimport {Router} from '@angular/router';\n\nimport {NavigationItem} from '../models/navigation-item';\n\n@Component({\n    selector: 'eni-nav-item',\n    templateUrl: './item.component.html',\n    styleUrls: ['./item.component.scss']\n})\nexport class NavigationItemComponent implements OnInit, OnDestroy {\n\n    @Input() item: NavigationItem;\n\n    private _unsubscribeAll: Subject<void>;\n\n    constructor(\n        private _changeDetectorRef: ChangeDetectorRef,\n        private _router: Router,\n        private _location: Location\n    ) {\n        this._unsubscribeAll = new Subject();\n    }\n\n    ngOnInit(): void {\n        this._router.events.pipe(takeUntil(this._unsubscribeAll))\n            .subscribe(() => {\n                if (this._location.path() === this.item.url) {\n                    this.item.active = true;\n                } else {\n                    this.item.active = false;\n                }\n                this._changeDetectorRef.markForCheck();\n            });\n    }\n\n    ngOnDestroy(): void {\n        this._unsubscribeAll.next();\n        this._unsubscribeAll.complete();\n    }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\n",
+                    "styleUrl": "./item.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_changeDetectorRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_location",
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "_changeDetectorRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "_router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "_location",
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<div class=\"eni-navigation-item\" *ngIf=\"!item.hidden\">\n\n    <a *ngIf=\"item.url\" [ngClass]=\"item.classes\" [queryParams]=\"item.queryParams\"\n       [routerLinkActive]=\"['active']\"\n       [routerLink]=\"[item.url]\"\n       class=\"nav-link\">\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon *ngIf=\"item.svg && item.icon\" [svgIcon]=\"item.icon\" class=\"nav-link-icon\"></mat-icon>\n        <mat-icon *ngIf=\"!item.svg && item.icon\" class=\"nav-link-icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\">{{(item.translate | translate) || item.title}}</span>\n    </ng-template>\n\n</div>\n"
+        },
+        {
+            "name": "SidebarComponent",
+            "id": "component-SidebarComponent-dee4db3010b1869939747cbf50f1d44d1c2feea8413022369d8252ae6600e640b7bd0ac89a21e7fd0c3cb4e7012440b7d994fee2adb26ff15c9cf0100acef7cf",
+            "file": "projects/eniblock/layout/sidebar/sidebar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-sidebar",
+            "styleUrls": [
+                "./sidebar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./sidebar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eni-sidebar',\n  templateUrl: './sidebar.component.html',\n  styleUrls: ['./sidebar.component.scss']\n})\nexport class SidebarComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  display: block;\n  padding-top: 80px;\n}\n",
+                    "styleUrl": "./sidebar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "ToolbarComponent",
+            "id": "component-ToolbarComponent-16dd9d3d18f29b47517ec0d68c660a524b04bf1f11f4b8a3746f21129e3e841b36fc96682bb959e1f8d54c56f6b0ae557ea545e21c99d44c358132a20f537234",
+            "file": "projects/eniblock/layout/toolbar/toolbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-toolbar",
+            "styleUrls": [
+                "./toolbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./toolbar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "toggleSidebar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, OnInit} from '@angular/core';\nimport {LayoutService} from '../layout.service';\n\n@Component({\n    selector: 'eni-toolbar',\n    templateUrl: './toolbar.component.html',\n    styleUrls: ['./toolbar.component.scss']\n})\nexport class ToolbarComponent implements OnInit {\n\n    constructor(\n        private _layoutService: LayoutService\n    ) {\n    }\n\n    ngOnInit(): void {\n    }\n\n    toggleSidebar(): void {\n        this._layoutService.toggleSidenav();\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "#toolbar {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  white-space: nowrap;\n}\n\n\n@media screen and (min-width: 1281px) {\n  .menu-icon {\n    display: none;\n  }\n}\n",
+                    "styleUrl": "./toolbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_layoutService",
+                        "type": "LayoutService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "_layoutService",
+                        "type": "LayoutService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div id=\"toolbar\">\n    <button (click)=\"toggleSidebar()\" mat-icon-button class=\"menu-icon\">\n        <mat-icon>menu</mat-icon>\n    </button>\n    <span>Eniblock</span>\n\n</div>\n\n\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "DataListModule",
+            "id": "module-DataListModule-30057f1043e6639422170ff3c9b4dbbc9bf5520d2a334cab8908a6459a4f0d0ffdef650c0d6874e9a289364b7a4acb2db40e37b07fcd8715d7d238103557ff3d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/data-list/data-list.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\n\nimport {DataListComponent} from './data-list.component';\nimport {DataBlockComponent, EniData, EniDataKey, EniDataValue} from './data-block/data-block.component';\n\n@NgModule({\n    declarations: [\n        DataListComponent,\n        DataBlockComponent,\n        EniData,\n        EniDataKey,\n        EniDataValue\n    ],\n    imports: [\n        CommonModule\n    ],\n    exports: [\n        DataListComponent,\n        DataBlockComponent,\n        EniData,\n        EniDataKey,\n        EniDataValue\n    ]\n})\nexport class DataListModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DataBlockComponent"
+                        },
+                        {
+                            "name": "DataListComponent"
+                        },
+                        {
+                            "name": "EniData"
+                        },
+                        {
+                            "name": "EniDataKey"
+                        },
+                        {
+                            "name": "EniDataValue"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DataBlockComponent"
+                        },
+                        {
+                            "name": "DataListComponent"
+                        },
+                        {
+                            "name": "EniData"
+                        },
+                        {
+                            "name": "EniDataKey"
+                        },
+                        {
+                            "name": "EniDataValue"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "LayoutModule",
+            "id": "module-LayoutModule-22a1aafa8308b7abe5fb51d041469dcd40dc0557b852b75826f5c4879ecb62bf06ebc77a30cf2b8da468c79ea20591018ca5faa4d3b0f8bcdb469b0b1c32569b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/layout/layout.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {RouterModule} from '@angular/router';\nimport {MatToolbarModule} from '@angular/material/toolbar';\nimport {MatSidenavModule} from '@angular/material/sidenav';\nimport {MatButtonModule} from '@angular/material/button';\nimport {MatIconModule} from '@angular/material/icon';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\n\nimport {ToolbarComponent} from './toolbar/toolbar.component';\nimport {LayoutComponent} from './layout.component';\nimport {SidebarComponent} from './sidebar/sidebar.component';\n\n@NgModule({\n    declarations: [\n        ToolbarComponent,\n        LayoutComponent,\n        SidebarComponent\n    ],\n    exports: [\n        LayoutComponent\n    ],\n    imports: [\n        CommonModule,\n        MatToolbarModule,\n        RouterModule,\n        MatSidenavModule,\n        MatButtonModule,\n        MatIconModule,\n        BrowserAnimationsModule\n    ]\n})\nexport class LayoutModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "LayoutComponent"
+                        },
+                        {
+                            "name": "SidebarComponent"
+                        },
+                        {
+                            "name": "ToolbarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "LayoutComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "NavigationModule",
+            "id": "module-NavigationModule-cb71a52fea3275248e7673e7121d9f61ddbbac5937299f46cda79b48693806799f2e4a4d7c8886ef0dfe01163e16e3d09ce9959b506b1edb83f399d824d298df",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/navigation/navigation.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {TranslateModule} from '@ngx-translate/core';\nimport {MatIconModule} from '@angular/material/icon';\nimport {RouterModule} from '@angular/router';\nimport {BrowserAnimationsModule} from '@angular/platform-browser/animations';\n\nimport {NavigationComponent} from './navigation.component';\nimport {NavigationItemComponent} from './item/item.component';\nimport {NavigationGroupComponent} from './group/group.component';\nimport {NavigationCollapsableComponent} from './collapsable/collapsable.component';\n\n@NgModule({\n    declarations: [\n        NavigationComponent,\n        NavigationItemComponent,\n        NavigationGroupComponent,\n        NavigationCollapsableComponent\n    ],\n    exports: [\n        NavigationComponent\n    ],\n    imports: [\n        CommonModule,\n        TranslateModule,\n        MatIconModule,\n        RouterModule,\n        BrowserAnimationsModule\n    ]\n})\nexport class NavigationModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "NavigationCollapsableComponent"
+                        },
+                        {
+                            "name": "NavigationComponent"
+                        },
+                        {
+                            "name": "NavigationGroupComponent"
+                        },
+                        {
+                            "name": "NavigationItemComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "NavigationComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-list/data-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/layout/layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/navigation/navigation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-list/data-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DataListComponent>",
+                "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/layout/layout.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LayoutComponent>",
+                "defaultValue": "(args: LayoutComponent) => ({\n    props: args,\n    template: '<eni-layout><div sidebar>sidebar</div><div>content</div></eni-layout>'\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/navigation/navigation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<NavigationComponent>",
+                "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "stories/data-list/data-list.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DataListComponent>",
+                    "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+                }
+            ],
+            "stories/layout/layout.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/layout/layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/layout/layout.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LayoutComponent>",
+                    "defaultValue": "(args: LayoutComponent) => ({\n    props: args,\n    template: '<eni-layout><div sidebar>sidebar</div><div>content</div></eni-layout>'\n})"
+                }
+            ],
+            "stories/navigation/navigation.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/navigation/navigation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/navigation/navigation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<NavigationComponent>",
+                    "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 2,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/eniblock/data-list/data-block/data-block.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DataBlockComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-list/data-block/data-block.component.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "EniData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-list/data-block/data-block.component.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "EniDataKey",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-list/data-block/data-block.component.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "EniDataValue",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-list/data-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DataListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/layout/layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/layout/layout.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "LayoutService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/layout/sidebar/sidebar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SidebarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/layout/toolbar/toolbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToolbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/collapsable/collapsable.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavigationCollapsableComponent",
+                "coveragePercent": 50,
+                "coverageCount": "8/16",
+                "status": "medium"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/group/group.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavigationGroupComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/item/item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavigationItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/models/navigation-item.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "NavigationItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/navigation.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavigationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/public-api.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Eniblock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/data-list/data-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/data-list/data-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/layout/layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/layout/layout.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/navigation/navigation.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/navigation/navigation.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

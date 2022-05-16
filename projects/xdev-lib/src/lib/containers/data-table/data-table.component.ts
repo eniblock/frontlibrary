@@ -97,7 +97,7 @@ export class DataTableComponent implements AfterViewInit, AfterContentInit {
     filtersForm: FormGroup;
     dataTableColumns: DataTableColumn[];
     columnsName: string[];
-    $dateRangeEvent = new Subject();
+    $dateRangeEvent = new Subject<void>();
 
     constructor(private _formBuilder: FormBuilder) {
         this.filtersForm = this._formBuilder.group({

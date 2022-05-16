@@ -1,0 +1,144 @@
+@use '@angular/material' as mat;
+@import '../projects/eniblock/eniblock.theme';
+
+$eniblock-primary: (
+        main: #7a1cca,
+        lighter: #d7bbef,
+        darker: #5d11b7
+);
+$eniblock-accent: (
+        main: #ff4949,
+        lighter: #ffc8c8,
+        darker: #ff3131
+);
+$eniblock-error: (
+        main: #E40173,
+        lighter: #FF5DA1,
+        darker: #98014C
+);
+$light-text: #FCFCFC;
+$dark-text: #000014;
+$color-background: #ebf4ff;
+
+/*************************************************************
+                MATERIAL COLOR PALETTES
+**************************************************************/
+$mat-primary: (
+        main: map-get($eniblock-primary, main),
+        lighter: map-get($eniblock-primary, lighter),
+        darker: map-get($eniblock-primary, darker),
+        contrast:
+        (
+                main: $light-text,
+                lighter: $light-text,
+                darker: $light-text
+        )
+);
+$eniblock-admin-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+$mat-accent: (
+        main: map-get($eniblock-accent, main),
+        lighter: map-get($eniblock-accent, lighter),
+        darker: map-get($eniblock-accent, darker),
+        contrast:
+        (
+                main: $light-text,
+                lighter: $light-text,
+                darker: $light-text
+        )
+);
+$eniblock-admin-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+$mat-error: (
+        main: map-get($eniblock-error, main),
+        lighter: map-get($eniblock-error, lighter),
+        darker: map-get($eniblock-error, darker),
+        contrast:
+        (
+                main: $light-text,
+                lighter: $light-text,
+                darker: $light-text
+        )
+);
+$eniblock-admin-warn: mat.define-palette($mat-error, main, lighter, darker);
+
+/*************************************************************
+                MATERIAL FOREGROUND
+**************************************************************/
+
+$mat-theme-foreground: (
+        base: $dark-text,
+        divider: $dark-text,
+        dividers: $dark-text,
+        disabled: $dark-text,
+        disabled-button: rgba($dark-text, 0.26),
+        disabled-text: $dark-text,
+        elevation: $dark-text,
+        secondary-text: $dark-text,
+        hint-text: $dark-text,
+        accent-text: $dark-text,
+        icon: $dark-text,
+        icons: $dark-text,
+        text: $dark-text,
+        slider-min: $dark-text,
+        slider-off: rgba($dark-text, 0.26),
+        slider-off-active: $dark-text
+);
+
+/*************************************************************
+                MATERIAL BACKGROUND
+**************************************************************/
+
+$mat-theme-background: (
+        background: $color-background,
+        status-bar: white,
+        app-bar: white,
+        hover: white,
+        card: white,
+        dialog: white,
+        tooltip: white,
+        disabled-button: white,
+        raised-button: white,
+        focused-button: white,
+        selected-button: white,
+        selected-disabled-button: white,
+        disabled-button-toggle: white,
+        unselected-chip: white,
+        disabled-list-option: white
+);
+
+/*************************************************************
+                MATERIAL THEME
+**************************************************************/
+
+$eniblock-admin-theme: (
+        primary:$eniblock-admin-primary,
+        accent:$eniblock-admin-accent,
+        warn:$eniblock-admin-warn,
+        foreground:$mat-theme-foreground,
+        background: $mat-theme-background
+);
+@include mat.all-component-themes($eniblock-admin-theme);
+@include eniblock-theme($eniblock-admin-theme);
+
+/*************************************************************
+                MATERIAL TYPOGRAPHY
+**************************************************************/
+
+$typography: mat.define-typography-config(
+        $display-1: mat.define-typography-level(5rem, 6.4rem, 700, 'Chivo'), //mat-display-1
+        $headline: mat.define-typography-level(2.6rem, 4rem, 700, 'Chivo'), //mat-h1
+        $title: mat.define-typography-level(2.4rem, 3.2rem, 400, 'Chivo'), //mat-h2
+        $subheading-2: mat.define-typography-level(1.6rem, 2.4rem, 700, 'Chivo'), //mat-h3
+        $subheading-1: mat.define-typography-level(2rem, 3.8rem, 400, 'Nunito'), //mat-h4
+        $body-2: mat.define-typography-level(1.7rem, 3.4rem, 400, 'Nunito'),
+        $body-1: mat.define-typography-level(1.5rem, 2.4rem, 400, 'Nunito'),
+        $caption: mat.define-typography-level(1.3rem, 2.2rem, 400, 'Nunito'),
+        $button: mat.define-typography-level(1.3rem, 2.2rem, 700, 'Nunito'),
+        $input: mat.define-typography-level(inherit, 0.8, 400, 'Nunito')
+);
+@include mat.all-component-typographies($typography);
+
+body {
+  font-family: "Nunito", sans-serif;
+}

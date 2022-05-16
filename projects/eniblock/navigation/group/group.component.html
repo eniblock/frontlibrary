@@ -1,0 +1,17 @@
+<ng-container *ngIf="!item.hidden">
+
+    <div [ngClass]="item.classes" class="group-title">
+        <span [translate]="item.translate" class="hint-text">{{(item.translate | translate) || item.title}}</span>
+    </div>
+
+    <div class="group-items">
+        <ng-container *ngFor="let item of item.children">
+            <eni-nav-collapsable *ngIf="item.type==='collapsable'"
+                                 [item]="item"></eni-nav-collapsable>
+            <eni-nav-item *ngIf="item.type==='item'" [item]="item"></eni-nav-item>
+        </ng-container>
+    </div>
+
+    <div class="separator"></div>
+
+</ng-container>
