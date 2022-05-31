@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavigationItem} from './models/navigation-item';
+import {NavigationService} from './navigation.service';
 
 @Component({
     selector: 'eni-navigation',
@@ -8,5 +9,11 @@ import {NavigationItem} from './models/navigation-item';
 })
 export class NavigationComponent {
 
-    @Input() navigation: NavigationItem[];
+    navigation: NavigationItem[];
+
+    constructor(
+        private _navigationService: NavigationService
+    ) {
+        this.navigation = _navigationService.navigation;
+    }
 }
