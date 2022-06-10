@@ -1,0 +1,68 @@
+<div id="dataTable">
+
+    <form *ngIf="filters" [formGroup]="filtersForm" class="filters">
+        <ng-container formArrayName="filters" *ngFor="let filter of filters; let i = index" [ngSwitch]="filter.type">
+            <ng-container [formGroupName]="i">
+
+                <mat-form-field appearance="outline" class="form-field"
+                                *ngSwitchCase="DataTableFilterType.STRING">
+                    <mat-icon matSuffix>search</mat-icon>
+                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
+                    <input matInput formControlName="filterValue" (keyup)="applyFilter()">
+                </mat-form-field>
+
+                <ng-container *ngSwitchCase="DataTableFilterType.SELECT">
+
+                    <eni-select-filter [filter]="filter" formControlName="filterValue"
+                                       (ngModelChange)="applyFilter()"></eni-select-filter>
+
+                </ng-container>
+
+                <mat-form-field appearance="outline" class="form-field"
+                                *ngSwitchCase="DataTableFilterType.DATEPICKER">
+                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
+                    <input matInput [matDatepicker]="datepicker_i" formControlName="filterValue"
+                           (dateChange)="applyFilter()">
+                    <mat-datepicker-toggle matSuffix [for]="datepicker_i"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker_i></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field daterange"
+                                *ngSwitchCase="DataTableFilterType.DATERANGEPICKER">
+                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
+                    <mat-date-range-input [rangePicker]="daterangepicker_i">
+                        <input matStartDate formControlName="startDate"
+                               (dateChange)="$dateRangeEvent.next()">
+                        <input matEndDate formControlName="endDate"
+                               (dateChange)="$dateRangeEvent.next()">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="daterangepicker_i"></mat-datepicker-toggle>
+                    <mat-date-range-picker #daterangepicker_i></mat-date-range-picker>
+                </mat-form-field>
+
+                <mat-slide-toggle labelPosition="before" formControlName="filterValue" (change)="applyFilter()"
+                                  *ngSwitchCase="DataTableFilterType.TOGGLE">
+                    {{filter.displayName ? filter.displayName : filter.column}}
+                </mat-slide-toggle>
+
+            </ng-container>
+        </ng-container>
+    </form>
+
+    <div class="table-container" [ngClass]="{'loading': loading}">
+
+        <div *ngIf="loading" class="loader">
+            <mat-progress-spinner [diameter]="50" mode="indeterminate"></mat-progress-spinner>
+        </div>
+
+        <table mat-table [dataSource]="_data">
+            <ng-content></ng-content>
+
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns" (click)="rowClicked.emit(row)"></tr>
+        </table>
+    </div>
+
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+</div>

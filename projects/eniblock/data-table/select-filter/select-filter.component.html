@@ -1,0 +1,19 @@
+<mat-form-field appearance="outline" class="form-field">
+    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>
+    <mat-select #selectElement [(ngModel)]="selectValue" (selectionChange)="select($event.value)"
+                [disabled]="loading"
+                [panelClass]="loading || !isOpen ? 'hide-dummy-option' : ''"
+                (openedChange)="loadOptions($event, filter.values)">
+        <mat-option *ngIf="!data || !data.length" disabled></mat-option>
+        <mat-option *ngFor="let item of data" [value]="item">
+            {{filter.displayValue ? filter.displayValue(item) : item}}
+        </mat-option>
+    </mat-select>
+    <div class="suffix" matSuffix>
+        <mat-icon *ngIf="selectValue"
+                  (click)="$event.stopPropagation();select(null)">
+            clear
+        </mat-icon>
+        <mat-spinner *ngIf="loading" class="spinner" diameter="20"></mat-spinner>
+    </div>
+</mat-form-field>

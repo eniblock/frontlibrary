@@ -2,6 +2,124 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "DataTableFilter",
+            "id": "interface-DataTableFilter-19ee877913a82d7772e80b91b50cb9bd3531b19b9da7bb7462ec74393e70bd26f32f44aea44747d6fffc93956c6ce9956e6737beee01c7aac7765532ccb7c62e",
+            "file": "projects/eniblock/data-table/data-table.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import {Observable} from 'rxjs';\nimport {SortDirection} from '@angular/material/sort';\n\nexport interface DataTableFilter {\n    column: string;\n    type: DataTableFilterType;\n    displayName?: string;\n    values?: any[] | Observable<any[]>;\n    displayValue?: (item: any) => string;\n}\n\nexport enum DataTableFilterType {\n    STRING = 'STRING',\n    SELECT = 'SELECT',\n    DATEPICKER = 'DATEPICKER',\n    DATERANGEPICKER = 'DATERANGEPICKER',\n    TOGGLE = 'TOGGLE'\n}\n\nexport interface DataTableLoadEvent {\n    filters: any;\n    sort: string;\n    sortDirection: SortDirection;\n    pageIndex: number;\n    pageSize: number;\n}\n",
+            "properties": [
+                {
+                    "name": "column",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "displayName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "displayValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": true,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DataTableFilterType",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "values",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[] | Observable<any[]>",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "DataTableLoadEvent",
+            "id": "interface-DataTableLoadEvent-19ee877913a82d7772e80b91b50cb9bd3531b19b9da7bb7462ec74393e70bd26f32f44aea44747d6fffc93956c6ce9956e6737beee01c7aac7765532ccb7c62e",
+            "file": "projects/eniblock/data-table/data-table.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import {Observable} from 'rxjs';\nimport {SortDirection} from '@angular/material/sort';\n\nexport interface DataTableFilter {\n    column: string;\n    type: DataTableFilterType;\n    displayName?: string;\n    values?: any[] | Observable<any[]>;\n    displayValue?: (item: any) => string;\n}\n\nexport enum DataTableFilterType {\n    STRING = 'STRING',\n    SELECT = 'SELECT',\n    DATEPICKER = 'DATEPICKER',\n    DATERANGEPICKER = 'DATERANGEPICKER',\n    TOGGLE = 'TOGGLE'\n}\n\nexport interface DataTableLoadEvent {\n    filters: any;\n    sort: string;\n    sortDirection: SortDirection;\n    pageIndex: number;\n    pageSize: number;\n}\n",
+            "properties": [
+                {
+                    "name": "filters",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "pageIndex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "pageSize",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "sort",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "sortDirection",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SortDirection",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
             "name": "NavigationItem",
             "id": "interface-NavigationItem-4144c456e041c8feeb5414f9b2155dc4cbfa23728e6df8b3cc68ebbfba2be8e11533a78fab4a6e3abf463299f64a00da11dd7ce3d19f88158e54d98f545cb946",
             "file": "projects/eniblock/navigation/models/navigation-item.ts",
@@ -927,6 +1045,385 @@
                 "OnInit"
             ],
             "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "DataTableComponent",
+            "id": "component-DataTableComponent-12404d191bbd4e6af714f313984cb35db4455e28c83172c0437563d60db6a8b11394a4ae4953e07c2a0124d310f8a7c2d44b1e063701cf345c5e9193450396cf",
+            "file": "projects/eniblock/data-table/data-table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-data-table",
+            "styleUrls": [
+                "./data-table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./data-table.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "string[]",
+                    "decorators": []
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "[]",
+                    "decorators": []
+                },
+                {
+                    "name": "filters",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "[]",
+                    "decorators": []
+                },
+                {
+                    "name": "length",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "pageSize",
+                    "defaultValue": "10",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "pageSizeOptions",
+                    "defaultValue": "[10, 20, 50]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "{}",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "load",
+                    "defaultValue": "new EventEmitter<DataTableLoadEvent>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "rowClicked",
+                    "defaultValue": "new EventEmitter<any>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "_data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "_filters",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DataTableFilter[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 50,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "$dateRangeEvent",
+                    "defaultValue": "new Subject<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 85
+                },
+                {
+                    "name": "columnDefs",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "QueryList<MatColumnDef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 47,
+                    "decorators": [
+                        {
+                            "name": "ContentChildren",
+                            "stringifiedArguments": "MatColumnDef"
+                        }
+                    ]
+                },
+                {
+                    "name": "DataTableFilterType",
+                    "defaultValue": "DataTableFilterType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 76
+                },
+                {
+                    "name": "filtersData",
+                    "defaultValue": "{\n        data: null,\n        filterChange: new EventEmitter<any>()\n    }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 81
+                },
+                {
+                    "name": "filtersForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 80
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 78
+                },
+                {
+                    "name": "paginator",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatPaginator",
+                    "optional": false,
+                    "description": "",
+                    "line": 45,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatPaginator"
+                        }
+                    ]
+                },
+                {
+                    "name": "table",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatTable<any>",
+                    "optional": false,
+                    "description": "",
+                    "line": 46,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "MatTable, {static: true}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "applyFilter",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 128,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getFilters",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "FormArray",
+                    "typeParameters": [],
+                    "line": 124,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 120,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 103,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n    AfterContentInit,\n    AfterViewInit,\n    Component,\n    ContentChildren,\n    EventEmitter,\n    Input,\n    Output,\n    QueryList,\n    Self,\n    ViewChild\n} from '@angular/core';\nimport {FormArray, FormBuilder, FormGroup} from '@angular/forms';\nimport {MatPaginator} from '@angular/material/paginator';\nimport {MatSort} from '@angular/material/sort';\nimport {MatColumnDef, MatTable} from '@angular/material/table';\nimport {merge, startWith, Subject} from 'rxjs';\nimport {debounceTime} from 'rxjs/operators';\n\nimport {DataTableFilter, DataTableFilterType, DataTableLoadEvent} from './data-table.model';\n\n@Component({\n    selector: 'eni-data-table',\n    templateUrl: './data-table.component.html',\n    styleUrls: ['./data-table.component.scss']\n})\nexport class DataTableComponent implements AfterViewInit, AfterContentInit {\n\n    _data: any[];\n    @Input() set data(data: any[]) {\n        this._data = data;\n        setTimeout(() => {\n            this.loading = false;\n        });\n    }\n\n    @Input() columns: string[];\n    @Input() pageSize = 10;\n    @Input() pageSizeOptions = [10, 20, 50];\n    @Input() length = 0;\n\n    @Output() load = new EventEmitter<DataTableLoadEvent>();\n    @Output() rowClicked = new EventEmitter<any>();\n\n    @ViewChild(MatPaginator) paginator: MatPaginator;\n    @ViewChild(MatTable, {static: true}) table: MatTable<any>;\n    @ContentChildren(MatColumnDef) columnDefs: QueryList<MatColumnDef>;\n\n\n    private _filters: DataTableFilter[];\n    @Input() set filters(filters: DataTableFilter[]) {\n        if (filters) {\n            const formArray = this.filtersForm.get('filters') as FormArray;\n            for (const filter of filters) {\n                switch (filter.type) {\n                    case DataTableFilterType.DATERANGEPICKER:\n                        formArray.push(this._formBuilder.group({\n                            startDate: '',\n                            endDate: ''\n                        }));\n                        break;\n                    default:\n                        formArray.push(this._formBuilder.group({\n                            filterValue: ''\n                        }));\n                }\n            }\n            this._filters = filters;\n        }\n    }\n\n    get filters(): DataTableFilter[] {\n        return this._filters;\n    }\n\n    DataTableFilterType = DataTableFilterType;\n\n    loading: boolean = true;\n\n    filtersForm: FormGroup;\n    filtersData = {\n        data: null,\n        filterChange: new EventEmitter<any>()\n    };\n    $dateRangeEvent = new Subject<void>();\n\n    constructor(\n        private _formBuilder: FormBuilder,\n        @Self() private sort: MatSort\n    ) {\n        this.filtersForm = this._formBuilder.group({\n            filters: this._formBuilder.array([])\n        });\n\n        // Prevent double event from daterange picker\n        this.$dateRangeEvent.pipe(\n            debounceTime(100)\n        ).subscribe(() => {\n            this.applyFilter();\n        });\n    }\n\n    ngAfterViewInit(): void {\n        this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);\n\n        merge(this.filtersData.filterChange, this.sort.sortChange, this.paginator.page)\n            .pipe(startWith({}))\n            .subscribe(() => {\n                this.loading = true;\n                this.load.emit({\n                    filters: this.filtersData.data,\n                    sort: this.sort.active,\n                    sortDirection: this.sort.direction,\n                    pageIndex: this.paginator.pageIndex,\n                    pageSize: this.paginator.pageSize\n                });\n            });\n    }\n\n    ngAfterContentInit(): void {\n        this.columnDefs.forEach(columnDef => this.table.addColumnDef(columnDef));\n    }\n\n    getFilters(): FormArray {\n        return this.filtersForm.get('filters') as FormArray;\n    }\n\n    applyFilter(): void {\n        const filters = this.getFilters().controls;\n        const filtersObject = {};\n        for (let i = 0; i < filters.length; i++) {\n            if (filters[i].value.filterValue || typeof filters[i].value.filterValue === 'boolean') {\n                filtersObject[this.filters[i].column] = filters[i].value.filterValue;\n            } else if (filters[i].value.startDate && filters[i].value.endDate) {\n                filtersObject[this.filters[i].column] = {\n                    startDate: filters[i].value.startDate,\n                    endDate: filters[i].value.endDate\n                };\n            }\n        }\n        this.filtersData.data = filtersObject;\n        this.filtersData.filterChange.emit(filtersObject);\n    }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "#dataTable {\n  width: 100%;\n\n  .filters {\n    mat-form-field {\n      width: 170px;\n      margin-right: 10px;\n\n      &.daterange {\n        width: 250px;\n      }\n    }\n\n    mat-slide-toggle {\n      color: #A0A3BD;\n\n      &:not(.mat-checked) {\n        ::ng-deep {\n          .mat-slide-toggle-bar {\n            background-color: #A0A3BD;\n          }\n        }\n      }\n    }\n  }\n\n  .table-container {\n    position: relative;\n\n    &.loading {\n      min-height: 150px;\n    }\n\n    .loader {\n      position: absolute;\n      top: 56px;\n      bottom: 0;\n      width: 100%;\n      height: 100%;\n      min-height: 150px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      background-color: rgba(255, 255, 255, 0.5);\n      z-index: +1;\n    }\n\n    table {\n      width: 100%;\n    }\n  }\n}\n",
+                    "styleUrl": "./data-table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "sort",
+                        "type": "MatSort",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 85,
+                "jsdoctags": [
+                    {
+                        "name": "_formBuilder",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "type": "MatSort",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "AfterViewInit",
+                "AfterContentInit"
+            ],
+            "accessors": {
+                "data": {
+                    "name": "data",
+                    "setSignature": {
+                        "name": "data",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "data",
+                                "type": "any[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 30,
+                        "jsdoctags": [
+                            {
+                                "name": "data",
+                                "type": "any[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "filters": {
+                    "name": "filters",
+                    "setSignature": {
+                        "name": "filters",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "filters",
+                                "type": "DataTableFilter[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 51,
+                        "jsdoctags": [
+                            {
+                                "name": "filters",
+                                "type": "DataTableFilter[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "filters",
+                        "type": "[]",
+                        "returnType": "DataTableFilter[]",
+                        "line": 72
+                    }
+                }
+            },
+            "templateData": "<div id=\"dataTable\">\n\n    <form *ngIf=\"filters\" [formGroup]=\"filtersForm\" class=\"filters\">\n        <ng-container formArrayName=\"filters\" *ngFor=\"let filter of filters; let i = index\" [ngSwitch]=\"filter.type\">\n            <ng-container [formGroupName]=\"i\">\n\n                <mat-form-field appearance=\"outline\" class=\"form-field\"\n                                *ngSwitchCase=\"DataTableFilterType.STRING\">\n                    <mat-icon matSuffix>search</mat-icon>\n                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>\n                    <input matInput formControlName=\"filterValue\" (keyup)=\"applyFilter()\">\n                </mat-form-field>\n\n                <ng-container *ngSwitchCase=\"DataTableFilterType.SELECT\">\n\n                    <eni-select-filter [filter]=\"filter\" formControlName=\"filterValue\"\n                                       (ngModelChange)=\"applyFilter()\"></eni-select-filter>\n\n                </ng-container>\n\n                <mat-form-field appearance=\"outline\" class=\"form-field\"\n                                *ngSwitchCase=\"DataTableFilterType.DATEPICKER\">\n                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>\n                    <input matInput [matDatepicker]=\"datepicker_i\" formControlName=\"filterValue\"\n                           (dateChange)=\"applyFilter()\">\n                    <mat-datepicker-toggle matSuffix [for]=\"datepicker_i\"></mat-datepicker-toggle>\n                    <mat-datepicker #datepicker_i></mat-datepicker>\n                </mat-form-field>\n\n                <mat-form-field appearance=\"outline\" class=\"form-field daterange\"\n                                *ngSwitchCase=\"DataTableFilterType.DATERANGEPICKER\">\n                    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>\n                    <mat-date-range-input [rangePicker]=\"daterangepicker_i\">\n                        <input matStartDate formControlName=\"startDate\"\n                               (dateChange)=\"$dateRangeEvent.next()\">\n                        <input matEndDate formControlName=\"endDate\"\n                               (dateChange)=\"$dateRangeEvent.next()\">\n                    </mat-date-range-input>\n                    <mat-datepicker-toggle matSuffix [for]=\"daterangepicker_i\"></mat-datepicker-toggle>\n                    <mat-date-range-picker #daterangepicker_i></mat-date-range-picker>\n                </mat-form-field>\n\n                <mat-slide-toggle labelPosition=\"before\" formControlName=\"filterValue\" (change)=\"applyFilter()\"\n                                  *ngSwitchCase=\"DataTableFilterType.TOGGLE\">\n                    {{filter.displayName ? filter.displayName : filter.column}}\n                </mat-slide-toggle>\n\n            </ng-container>\n        </ng-container>\n    </form>\n\n    <div class=\"table-container\" [ngClass]=\"{'loading': loading}\">\n\n        <div *ngIf=\"loading\" class=\"loader\">\n            <mat-progress-spinner [diameter]=\"50\" mode=\"indeterminate\"></mat-progress-spinner>\n        </div>\n\n        <table mat-table [dataSource]=\"_data\">\n            <ng-content></ng-content>\n\n            <tr mat-header-row *matHeaderRowDef=\"columns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: columns\" (click)=\"rowClicked.emit(row)\"></tr>\n        </table>\n    </div>\n\n    <mat-paginator [length]=\"length\" [pageSize]=\"pageSize\" [pageSizeOptions]=\"pageSizeOptions\"></mat-paginator>\n\n</div>\n"
         },
         {
             "name": "FileImportComponent",
@@ -2149,6 +2646,310 @@
             "templateData": "<div class=\"eni-navigation-item\" *ngIf=\"!item.hidden\">\n\n    <a *ngIf=\"item.url\" [ngClass]=\"item.classes\" [queryParams]=\"item.queryParams\"\n       [routerLinkActive]=\"['active']\"\n       [routerLink]=\"[item.url]\"\n       class=\"nav-link\">\n        <ng-container *ngTemplateOutlet=\"itemContent\"></ng-container>\n    </a>\n\n    <ng-template #itemContent>\n        <mat-icon *ngIf=\"item.svg && item.icon\" [svgIcon]=\"item.icon\" class=\"nav-link-icon\"></mat-icon>\n        <mat-icon *ngIf=\"!item.svg && item.icon\" class=\"nav-link-icon\">{{item.icon}}</mat-icon>\n        <span class=\"nav-link-title\">{{(item.translate | translate) || item.title}}</span>\n    </ng-template>\n\n</div>\n"
         },
         {
+            "name": "SelectFilterComponent",
+            "id": "component-SelectFilterComponent-5dcdf84a307be967a85eeaafbdc4878bc260b9224aa5de1fa1cf6c0c888af1b7654ae5f290efd6b23a2104a6b6081473ed2287a3463993c447919d63458a6faa",
+            "file": "projects/eniblock/data-table/select-filter/select-filter.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => SelectFilterComponent), multi: true\n}",
+                    "type": "component"
+                }
+            ],
+            "selector": "eni-select-filter",
+            "styleUrls": [
+                "./select-filter.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./select-filter.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "filter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "DataTableFilter",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_unsubscribeAll",
+                    "defaultValue": "new Subject<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                },
+                {
+                    "name": "isOpen",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
+                },
+                {
+                    "name": "propagateChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                },
+                {
+                    "name": "selectElement",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MatSelect",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'selectElement'"
+                        }
+                    ]
+                },
+                {
+                    "name": "selectValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "loadOptions",
+                    "args": [
+                        {
+                            "name": "opened",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "options",
+                            "type": "any[] | Observable<any[]>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "opened",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "options",
+                            "type": "any[] | Observable<any[]>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "args": [
+                        {
+                            "name": "option",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "option",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, forwardRef, Input, OnDestroy, ViewChild} from '@angular/core';\nimport {isObservable, Observable, Subject} from 'rxjs';\nimport {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';\n\nimport {DataTableFilter} from '../data-table.model';\nimport {takeUntil} from 'rxjs/operators';\nimport {MatSelect} from '@angular/material/select';\n\n@Component({\n    selector: 'eni-select-filter',\n    templateUrl: './select-filter.component.html',\n    styleUrls: ['./select-filter.component.scss'],\n    providers: [\n        {\n            provide: NG_VALUE_ACCESSOR,\n            useExisting: forwardRef(() => SelectFilterComponent),\n            multi: true\n        }\n    ]\n})\nexport class SelectFilterComponent implements ControlValueAccessor, OnDestroy {\n\n    @Input() filter: DataTableFilter;\n\n    @ViewChild('selectElement') selectElement: MatSelect;\n\n    selectValue: any;\n    data: any;\n    loading: boolean;\n    isOpen: boolean;\n    _unsubscribeAll = new Subject<void>();\n\n    constructor() {\n    }\n\n    writeValue(value: any) {\n        this.selectValue = value;\n    }\n\n    propagateChange = (_: any) => {\n    }\n\n    registerOnChange(fn) {\n        this.propagateChange = fn;\n    }\n\n    registerOnTouched(fn: any): void {\n    }\n\n    select(option): void {\n        this.selectValue = option;\n        this.propagateChange(option);\n    }\n\n    loadOptions(opened: boolean, options: any[] | Observable<any[]>): any {\n        this.isOpen = opened;\n        if (opened) {\n            if (isObservable(options)) {\n                this.loading = true;\n                options\n                    .pipe(takeUntil(this._unsubscribeAll))\n                    .subscribe(data => {\n                        this.data = data;\n                        this.loading = false;\n                    }, () => {\n                        this.selectElement.close();\n                        this.loading = false;\n                    });\n            } else {\n                this.data = options;\n            }\n        }\n    }\n\n    ngOnDestroy(): void {\n        this._unsubscribeAll.next();\n        this._unsubscribeAll.complete();\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "mat-form-field {\n  width: 170px;\n  margin-right: 10px;\n}\n\n.suffix {\n  display: flex;\n  align-items: center;\n}\n\n::ng-deep {\n  .hide-dummy-option {\n    display: none !important;\n  }\n}\n",
+                    "styleUrl": "./select-filter.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 31
+            },
+            "implements": [
+                "ControlValueAccessor",
+                "OnDestroy"
+            ],
+            "templateData": "<mat-form-field appearance=\"outline\" class=\"form-field\">\n    <mat-label>{{filter.displayName ? filter.displayName : filter.column}}</mat-label>\n    <mat-select #selectElement [(ngModel)]=\"selectValue\" (selectionChange)=\"select($event.value)\"\n                [disabled]=\"loading\"\n                [panelClass]=\"loading || !isOpen ? 'hide-dummy-option' : ''\"\n                (openedChange)=\"loadOptions($event, filter.values)\">\n        <mat-option *ngIf=\"!data || !data.length\" disabled></mat-option>\n        <mat-option *ngFor=\"let item of data\" [value]=\"item\">\n            {{filter.displayValue ? filter.displayValue(item) : item}}\n        </mat-option>\n    </mat-select>\n    <div class=\"suffix\" matSuffix>\n        <mat-icon *ngIf=\"selectValue\"\n                  (click)=\"$event.stopPropagation();select(null)\">\n            clear\n        </mat-icon>\n        <mat-spinner *ngIf=\"loading\" class=\"spinner\" diameter=\"20\"></mat-spinner>\n    </div>\n</mat-form-field>\n"
+        },
+        {
             "name": "SidebarComponent",
             "id": "component-SidebarComponent-dee4db3010b1869939747cbf50f1d44d1c2feea8413022369d8252ae6600e640b7bd0ac89a21e7fd0c3cb4e7012440b7d994fee2adb26ff15c9cf0100acef7cf",
             "file": "projects/eniblock/layout/sidebar/sidebar.component.ts",
@@ -2304,13 +3105,13 @@
     "modules": [
         {
             "name": "BackTitleModule",
-            "id": "module-BackTitleModule-9b413c7164f37339b2825f4a528267a79da2c60e937b4b8366516578335b934e17f59dfdeb304049da2d928d619b9d6023b5c70d4bb6837766b4796d85a57bfa",
+            "id": "module-BackTitleModule-b0a1075d0e621ab920a9e99b07920d95c474567c8d6b9445a1771bb185842ba18af6e24bac4055ed3279a01abe5e821b0731fcea85c3883c330633c5df6b915d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/eniblock/back-title/back-title.module.ts",
             "methods": [],
-            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {FlexModule} from '@angular/flex-layout';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\nimport {RouterModule} from '@angular/router';\n\nimport {BackTitleComponent} from './back-title.component';\n\n@NgModule({\n    declarations: [\n        BackTitleComponent\n    ],\n    imports: [\n        CommonModule,\n        FlexModule,\n        MatIconModule,\n        MatButtonModule,\n        RouterModule\n    ],\n    exports: [BackTitleComponent]\n})\nexport class BackTitleModule {\n}\n",
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {FlexModule} from '@angular/flex-layout';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\n\nimport {BackTitleComponent} from './back-title.component';\n\n\n@NgModule({\n    declarations: [\n        BackTitleComponent\n    ],\n    imports: [\n        CommonModule,\n        FlexModule,\n        MatIconModule,\n        MatButtonModule\n    ],\n    exports: [BackTitleComponent]\n})\nexport class BackTitleModule {\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2445,6 +3246,53 @@
                         },
                         {
                             "name": "EniDataValue"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DataTableModule",
+            "id": "module-DataTableModule-c21a3c3c290583c98d4222b60d12e2f3ea595ba7c493dc567cab1613b6cbb5b8feeef204acd6e5d240da184a43fd318e0eca2827cf055adaac8f0621f12f8923",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/data-table/data-table.module.ts",
+            "methods": [],
+            "sourceCode": "import {CommonModule} from '@angular/common';\nimport {NgModule} from '@angular/core';\nimport {FormsModule, ReactiveFormsModule} from '@angular/forms';\nimport {MatButtonModule} from '@angular/material/button';\nimport {MatDatepickerModule} from '@angular/material/datepicker';\nimport {MatFormFieldModule} from '@angular/material/form-field';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatInputModule} from '@angular/material/input';\nimport {MatPaginatorModule} from '@angular/material/paginator';\nimport {MatSelectModule} from '@angular/material/select';\nimport {MatSortModule} from '@angular/material/sort';\nimport {MatTableModule} from '@angular/material/table';\nimport {MatProgressSpinnerModule} from '@angular/material/progress-spinner';\nimport {MatSlideToggleModule} from '@angular/material/slide-toggle';\n\nimport {DataTableComponent} from './data-table.component';\nimport {SelectFilterComponent} from './select-filter/select-filter.component';\n\n\n@NgModule({\n    declarations: [\n        DataTableComponent,\n        SelectFilterComponent\n    ],\n    imports: [\n        CommonModule,\n        MatTableModule,\n        MatFormFieldModule,\n        MatIconModule,\n        MatInputModule,\n        MatButtonModule,\n        MatSelectModule,\n        ReactiveFormsModule,\n        MatDatepickerModule,\n        MatPaginatorModule,\n        MatSortModule,\n        MatProgressSpinnerModule,\n        FormsModule,\n        MatSlideToggleModule\n    ],\n    exports: [DataTableComponent]\n})\nexport class DataTableModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DataTableComponent"
+                        },
+                        {
+                            "name": "SelectFilterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DataTableComponent"
                         }
                     ]
                 },
@@ -2628,6 +3476,46 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-list/data-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/file-import/file-import.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/layout/layout.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2645,16 +3533,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/data-list/data-list.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2663,6 +3541,46 @@
                 "deprecationMessage": "",
                 "type": "Story<BackTitleComponent>",
                 "defaultValue": "(args: BackTitleComponent) => ({\n    props: args,\n    template: `<eni-back-title><h1>Title</h1></eni-back-title>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args: CardComponent) => ({\n    props: args,\n    template: `<div style=\"padding:10px; background:lightgrey;\"><eni-card><h1>Title</h1><p>Some content</p></eni-card></div>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-list/data-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DataListComponent>",
+                "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-table/data-table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DataTableComponent>",
+                "defaultValue": "(args: DataTableComponent) => ({\n    props: args,\n    template: `\n    <eni-data-table>\n        <ng-container matColumnDef=\"id\">\n        <th *matHeaderCellDef mat-header-cell>ID</th>\n        <td *matCellDef=\"let element\" mat-cell>{{element.id}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"name\">\n        <th *matHeaderCellDef mat-header-cell>NAME</th>\n        <td *matCellDef=\"let element\" mat-cell> {{element.name}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"price\">\n        <th *matHeaderCellDef mat-header-cell>PRICE</th>\n        <td *matCellDef=\"let element\" mat-cell> {{element.price}} </td>\n      </ng-container>\n    </eni-data-table>`\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/file-import/file-import.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<FileImportComponent>",
+                "defaultValue": "(args: FileImportComponent) => ({\n    props: args\n})"
             },
             {
                 "name": "Template",
@@ -2683,21 +3601,53 @@
                 "deprecationMessage": "",
                 "type": "Story<NavigationComponent>",
                 "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/data-list/data-list.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<DataListComponent>",
-                "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "DataTableFilterType",
+                "childs": [
+                    {
+                        "name": "STRING",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "STRING"
+                    },
+                    {
+                        "name": "SELECT",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "SELECT"
+                    },
+                    {
+                        "name": "DATEPICKER",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "DATEPICKER"
+                    },
+                    {
+                        "name": "DATERANGEPICKER",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "DATERANGEPICKER"
+                    },
+                    {
+                        "name": "TOGGLE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "TOGGLE"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/eniblock/data-table/data-table.model.ts"
+            }
+        ],
         "groupedVariables": {
             "stories/back-title/back-title.stories.ts": [
                 {
@@ -2719,6 +3669,94 @@
                     "deprecationMessage": "",
                     "type": "Story<BackTitleComponent>",
                     "defaultValue": "(args: BackTitleComponent) => ({\n    props: args,\n    template: `<eni-back-title><h1>Title</h1></eni-back-title>`\n})"
+                }
+            ],
+            "stories/card/card.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<CardComponent>",
+                    "defaultValue": "(args: CardComponent) => ({\n    props: args,\n    template: `<div style=\"padding:10px; background:lightgrey;\"><eni-card><h1>Title</h1><p>Some content</p></eni-card></div>`\n})"
+                }
+            ],
+            "stories/data-list/data-list.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DataListComponent>",
+                    "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+                }
+            ],
+            "stories/data-table/data-table.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-table/data-table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DataTableComponent>",
+                    "defaultValue": "(args: DataTableComponent) => ({\n    props: args,\n    template: `\n    <eni-data-table>\n        <ng-container matColumnDef=\"id\">\n        <th *matHeaderCellDef mat-header-cell>ID</th>\n        <td *matCellDef=\"let element\" mat-cell>{{element.id}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"name\">\n        <th *matHeaderCellDef mat-header-cell>NAME</th>\n        <td *matCellDef=\"let element\" mat-cell> {{element.name}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"price\">\n        <th *matHeaderCellDef mat-header-cell>PRICE</th>\n        <td *matCellDef=\"let element\" mat-cell> {{element.price}} </td>\n      </ng-container>\n    </eni-data-table>`\n})"
+                }
+            ],
+            "stories/file-import/file-import.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/file-import/file-import.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/file-import/file-import.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<FileImportComponent>",
+                    "defaultValue": "(args: FileImportComponent) => ({\n    props: args\n})"
                 }
             ],
             "stories/layout/layout.stories.ts": [
@@ -2764,32 +3802,54 @@
                     "type": "Story<NavigationComponent>",
                     "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
                 }
-            ],
-            "stories/data-list/data-list.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/data-list/data-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/data-list/data-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<DataListComponent>",
-                    "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
-                }
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "projects/eniblock/data-table/data-table.model.ts": [
+                {
+                    "name": "DataTableFilterType",
+                    "childs": [
+                        {
+                            "name": "STRING",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "STRING"
+                        },
+                        {
+                            "name": "SELECT",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "SELECT"
+                        },
+                        {
+                            "name": "DATEPICKER",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "DATEPICKER"
+                        },
+                        {
+                            "name": "DATERANGEPICKER",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "DATERANGEPICKER"
+                        },
+                        {
+                            "name": "TOGGLE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "TOGGLE"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/eniblock/data-table/data-table.model.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {}
     },
     "routes": [],
@@ -2858,6 +3918,42 @@
                 "name": "DataListComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-table/data-table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DataTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/24",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-table/data-table.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DataTableFilter",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-table/data-table.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DataTableLoadEvent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/data-table/select-filter/select-filter.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectFilterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
@@ -2998,6 +4094,26 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/data-list/data-list.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3009,6 +4125,46 @@
             },
             {
                 "filePath": "stories/data-list/data-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/data-table/data-table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/file-import/file-import.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/file-import/file-import.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
