@@ -1,5 +1,7 @@
 @import 'navigation/navigation.theme';
+@import 'file-import/file-import.component';
 
 @mixin eniblock-theme($app-theme) {
   @include navigation-theme($app-theme);
+  @include file-import-theme($app-theme);
 }

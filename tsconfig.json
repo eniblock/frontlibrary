@@ -20,14 +20,8 @@
       "dom"
     ],
     "paths": {
-      "@eniblock/ui/layout": [
-        "projects/eniblock/layout"
-      ],
-      "@eniblock/ui/navigation": [
-        "projects/eniblock/navigation"
-      ],
-       "@eniblock/ui/data-list": [
-        "projects/eniblock/data-list"
+      "@eniblock/ui/*": [
+        "projects/eniblock/*"
       ],
       "eniblock": [
         "dist/eniblock"

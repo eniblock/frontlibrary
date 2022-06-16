@@ -1,0 +1,43 @@
+@use '@angular/material' as mat;
+@import '../variables';
+
+@mixin file-import-theme($theme) {
+  $accent: mat.get-color-from-palette(map-get($theme, accent));
+
+  .eniblock-file-import {
+
+    .import-container {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px dashed $color-line;
+      border-radius: 4px;
+      cursor: pointer;
+
+      .file-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .file-description {
+        margin: 10px 0;
+      }
+
+      .file-btn {
+        font-weight: 700;
+        padding: 5px 20px;
+        border-radius: 8px;
+        color: white;
+        background-color: $accent;
+      }
+    }
+
+    .preview-container {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+

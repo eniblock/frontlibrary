@@ -1,0 +1,18 @@
+<input #fileInput (change)="onFileChanged($event)" style="display: none;"
+       type="file">
+<div (click)="fileInput.click()" (fileDropped)="onFileDropped($event)"
+     *ngIf="!preview"
+     fxLayout="column"
+     fxLayoutAlign="center center" class="import-container" eniDragDrop>
+    <span class="file-title">Drag & Drop</span>
+    <span class="file-description">Drag files or click here to upload</span>
+    <span class="file-btn">Upload file</span>
+</div>
+
+<div (click)="fileInput.click()" (fileDropped)="onFileDropped($event)" *ngIf="preview"
+     class="preview-container"
+     eniDragDrop>
+    <mat-icon (click)="$event.stopPropagation();deleteFile()">delete
+    </mat-icon>
+    <img [src]="preview" alt="preview">
+</div>

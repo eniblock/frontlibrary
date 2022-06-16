@@ -223,6 +223,167 @@
                 }
             },
             "type": "injectable"
+        },
+        {
+            "name": "NavigationService",
+            "id": "injectable-NavigationService-e66869eafd93325c63516fa96de07998f638703d60f4d61d923335a72ab1ec7b640e5d17889c27e1863b05d6076dc23e725e16cbd47388cc6bc84c4bc2083a84",
+            "file": "projects/eniblock/navigation/navigation.service.ts",
+            "properties": [
+                {
+                    "name": "_navigation",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "NavigationItem[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "addNavigationItem",
+                    "args": [
+                        {
+                            "name": "parent",
+                            "type": "NavigationItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "item",
+                            "type": "NavigationItem",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "parent",
+                            "type": "NavigationItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "item",
+                            "type": "NavigationItem",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getNavigationItem",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "navigation",
+                            "type": "NavigationItem[]",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "NavigationItem",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "navigation",
+                            "type": "NavigationItem[]",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Injectable} from '@angular/core';\nimport {NavigationItem} from './models/navigation-item';\n\n@Injectable({\n    providedIn: 'root'\n})\nexport class NavigationService {\n\n    private _navigation: NavigationItem[];\n\n    constructor() {\n    }\n\n    get navigation(): NavigationItem[] {\n        return this._navigation;\n    }\n\n    set navigation(value: NavigationItem[]) {\n        this._navigation = value;\n    }\n\n    getNavigationItem(id: string, navigation?: NavigationItem[]): NavigationItem {\n\n        if (!navigation) {\n            navigation = this.navigation;\n        }\n\n        for (const item of navigation) {\n            if (item.id === id) {\n                return item;\n            }\n\n            if (item.children) {\n                const childItem = this.getNavigationItem(id, item.children);\n\n                if (childItem) {\n                    return childItem;\n                }\n            }\n        }\n    }\n\n    addNavigationItem(parent: NavigationItem, item: NavigationItem): void {\n        if (!parent.children) {\n            parent.children = [];\n        }\n        parent.children.push(item);\n    }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "accessors": {
+                "navigation": {
+                    "name": "navigation",
+                    "setSignature": {
+                        "name": "navigation",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "NavigationItem[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 18,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "NavigationItem[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "navigation",
+                        "type": "[]",
+                        "returnType": "NavigationItem[]",
+                        "line": 14
+                    }
+                }
+            },
+            "type": "injectable"
         }
     ],
     "guards": [],
@@ -246,6 +407,203 @@
         }
     ],
     "directives": [
+        {
+            "name": "DragDropDirective",
+            "id": "directive-DragDropDirective-eca3216d3113395cd5458fd76b8bcfa867f31a261bdf5ab960ca8270adc7c57746144f04581aca75b3e4bb5d807bd2e51e832d1745f73c67277be11cf4003ab1",
+            "file": "projects/eniblock/file-import/drag-drop.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {Directive, EventEmitter, HostListener, Output} from '@angular/core';\n\n@Directive({\n    selector: '[eniDragDrop]'\n})\nexport class DragDropDirective {\n\n    @Output() fileDropped = new EventEmitter<FileList>();\n\n    constructor() {\n    }\n\n    @HostListener('dragover', ['$event']) onDragOver(evt): void {\n        evt.preventDefault();\n        evt.stopPropagation();\n    }\n\n    @HostListener('dragleave', ['$event'])\n    public onDragLeave(evt): void {\n        evt.preventDefault();\n        evt.stopPropagation();\n    }\n\n    @HostListener('drop', ['$event'])\n    public ondrop(evt): void {\n        evt.preventDefault();\n        evt.stopPropagation();\n        const files = evt.dataTransfer.files;\n        if (files.length > 0) {\n            this.fileDropped.emit(files);\n        }\n    }\n\n}\n",
+            "selector": "[eniDragDrop]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "fileDropped",
+                    "defaultValue": "new EventEmitter<FileList>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 8,
+                    "type": "EventEmitter"
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "dragleave",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19
+                },
+                {
+                    "name": "dragover",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13
+                },
+                {
+                    "name": "drop",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onDragLeave",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'dragleave', ['$event']"
+                        }
+                    ],
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onDragOver",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'dragover', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ondrop",
+                    "args": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'drop', ['$event']"
+                        }
+                    ],
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "evt",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            }
+        },
         {
             "name": "EniData",
             "id": "directive-EniData-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
@@ -305,6 +663,169 @@
         }
     ],
     "components": [
+        {
+            "name": "BackTitleComponent",
+            "id": "component-BackTitleComponent-6c6084e3a08946c3865c69b8ecfc0f631d770fa0fa170ca420fe166bcf17c1826ba1a71d84d33265f122526bc56a131568bbad158a6d84a5d1565c274d1463bf",
+            "file": "projects/eniblock/back-title/back-title.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-back-title",
+            "styleUrls": [
+                "./back-title.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./back-title.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backPath",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "back",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {Location} from '@angular/common';\nimport {Router} from '@angular/router';\n\n@Component({\n    selector: 'eni-back-title',\n    templateUrl: './back-title.component.html',\n    styleUrls: ['./back-title.component.scss']\n})\nexport class BackTitleComponent {\n\n    @Input() backPath?: string;\n\n    constructor(\n        private _location: Location,\n        private _router: Router\n    ) {\n    }\n\n    back(): void {\n        if (this.backPath) {\n            this._router.navigate([this.backPath]);\n        } else {\n            this._location.back();\n        }\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".back-button {\n  width: 102px;\n  height: 46px;\n  color: #a0a3bd;\n  background-color: #eff0f6;\n\n  .mat-icon {\n    transform: scale(0.7);\n  }\n}\n",
+                    "styleUrl": "./back-title.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_location",
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "_location",
+                        "type": "Location",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "_router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"back-title\" fxLayout fxLayoutAlign=\"space-between center\">\n    <div fxLayout fxLayoutAlign=\"flex-start center\" fxLayoutGap=\"20px\">\n        <button (click)=\"back()\" class=\"back-button\" mat-flat-button>\n            <mat-icon>reply</mat-icon>\n            Back\n        </button>\n        <ng-content></ng-content>\n    </div>\n</div>\n"
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-ea820c370f7a8204d5087be43a92c108c92aecfa837a632b51800f3c165cb14a9b8bb4a392f76e840b2d9cbfdc28936ffbb936a258aec95b0719fed02a9bb082",
+            "file": "projects/eniblock/card/card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-card",
+            "styleUrls": [
+                "./card.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'eni-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.component.scss']\n})\nexport class CardComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".mat-card {\n  padding: 25px;\n  border-radius: 20px;\n  box-shadow: none !important;\n}\n",
+                    "styleUrl": "./card.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<mat-card>\n    <ng-content></ng-content>\n</mat-card>\n"
+        },
         {
             "name": "DataBlockComponent",
             "id": "component-DataBlockComponent-19579810c97c9a7066324c927309d8cd282838144537437fabfc23335c1436c1e46191d90d992862cae5a44849d40982ced1a55cbd034d34a825863f59015a73",
@@ -406,6 +927,194 @@
                 "OnInit"
             ],
             "templateData": "<ng-content></ng-content>\n"
+        },
+        {
+            "name": "FileImportComponent",
+            "id": "component-FileImportComponent-ea2e28c9270f92377bca86aa4af4bbbafe786974ee41291c15ef2f36f3c745145d26d6c4a90ea3045cb7d5147e094717dd735798feb2af51afe8da4ce500dc3d",
+            "file": "projects/eniblock/file-import/file-import.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "eni-file-import",
+            "styleUrls": [
+                "./file-import.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./file-import.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "fileChange",
+                    "defaultValue": "new EventEmitter<File>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "classes",
+                    "defaultValue": "'eniblock-file-import'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ]
+                },
+                {
+                    "name": "preview",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | ArrayBuffer",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "deleteFile",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onFileChanged",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onFileDropped",
+                    "args": [
+                        {
+                            "name": "files",
+                            "type": "FileList",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "files",
+                            "type": "FileList",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setFile",
+                    "args": [
+                        {
+                            "name": "file",
+                            "type": "File",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "file",
+                            "type": "File",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "'eniblock-file-import'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {Component, EventEmitter, HostBinding, Output} from '@angular/core';\n\n@Component({\n    selector: 'eni-file-import',\n    templateUrl: './file-import.component.html',\n    styleUrls: ['./file-import.component.scss']\n})\nexport class FileImportComponent {\n\n    @Output() fileChange = new EventEmitter<File>();\n    preview: string | ArrayBuffer;\n    @HostBinding('class') classes = 'eniblock-file-import';\n\n    constructor() {\n    }\n\n    onFileChanged(event: Event): void {\n        const files: FileList = (event.target as HTMLInputElement).files;\n        this.setFile(files[0]);\n    }\n\n    onFileDropped(files: FileList): void {\n        this.setFile(files[0]);\n    }\n\n    setFile(file: File): void {\n        if (file) {\n            this.fileChange.emit(file);\n            const reader = new FileReader();\n            reader.readAsDataURL(file);\n            reader.onload = () => {\n                this.preview = reader.result;\n            };\n        }\n    }\n\n    deleteFile(): void {\n        this.fileChange.emit(null);\n        this.preview = null;\n    }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use '@angular/material' as mat;\n@import '../variables';\n\n@mixin file-import-theme($theme) {\n  $accent: mat.get-color-from-palette(map-get($theme, accent));\n\n  .eniblock-file-import {\n\n    .import-container {\n      height: 180px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border: 1.5px dashed $color-line;\n      border-radius: 4px;\n      cursor: pointer;\n\n      .file-title {\n        font-size: 18px;\n        font-weight: 700;\n      }\n\n      .file-description {\n        margin: 10px 0;\n      }\n\n      .file-btn {\n        font-weight: 700;\n        padding: 5px 20px;\n        border-radius: 8px;\n        color: $accent;\n        background-color: transparentize($accent, 0.9);\n      }\n    }\n\n    .preview-container {\n      img {\n        max-width: 100%;\n      }\n    }\n  }\n}\n\n",
+                    "styleUrl": "./file-import.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
+            "templateData": "<input #fileInput (change)=\"onFileChanged($event)\" style=\"display: none;\"\n       type=\"file\">\n<div (click)=\"fileInput.click()\" (fileDropped)=\"onFileDropped($event)\"\n     *ngIf=\"!preview\"\n     fxLayout=\"column\"\n     fxLayoutAlign=\"center center\" class=\"import-container\" eniDragDrop>\n    <span class=\"file-title\">Drag & Drop</span>\n    <span class=\"file-description\">Drag files or click here to upload</span>\n    <span class=\"file-btn\">Upload file</span>\n</div>\n\n<div (click)=\"fileInput.click()\" (fileDropped)=\"onFileDropped($event)\" *ngIf=\"preview\"\n     class=\"preview-container\"\n     eniDragDrop>\n    <mat-icon (click)=\"$event.stopPropagation();deleteFile()\">delete\n    </mat-icon>\n    <img [src]=\"preview\" alt=\"preview\">\n</div>\n"
         },
         {
             "name": "LayoutComponent",
@@ -524,7 +1233,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$toolbar-height: 80px;\n$sidenav-width: 280px;\n\n.toolbar {\n  position: relative;\n  height: $toolbar-height;\n  box-shadow: 0 4px 10px #00000014;\n  z-index: 2;\n}\n\n.container {\n  position: absolute;\n  top: $toolbar-height;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.sidenav {\n  width: $sidenav-width;\n  border: none;\n}\n\n.content {\n  padding: 35px 40px;\n}\n",
+                    "data": "$toolbar-height: 80px;\n$sidenav-width: 280px;\n\n.toolbar {\n  position: relative;\n  height: $toolbar-height;\n  box-shadow: 0 4px 10px #00000014;\n  z-index: 2;\n}\n\n.container {\n  position: absolute;\n  top: $toolbar-height;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  padding-bottom: $toolbar-height;\n}\n\n.sidenav {\n  width: $sidenav-width;\n  border: none;\n}\n\n.content {\n  padding: 35px 40px;\n}\n",
                     "styleUrl": "./layout.component.scss"
                 }
             ],
@@ -1173,7 +1882,7 @@
         },
         {
             "name": "NavigationComponent",
-            "id": "component-NavigationComponent-c5672dc80847bb046b07bed36ca52d83b42e51f9866de908db80f0584218e9d59bfcd1c369de865848cc714c272d34a548e4a06e7929df471208cf109743acd1",
+            "id": "component-NavigationComponent-f045e2c267a220dc76898ecb5642e8675089a021c0fc6a0d1c86bb819287f8b866bdb5ffc651575b8e8c6dad721610e3a622c31825f7b04acadd05149e0323df",
             "file": "projects/eniblock/navigation/navigation.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1189,18 +1898,19 @@
                 "./navigation.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
                     "name": "navigation",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
                     "type": "NavigationItem[]",
-                    "decorators": []
+                    "optional": false,
+                    "description": "",
+                    "line": 12
                 }
             ],
-            "outputsClass": [],
-            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -1209,7 +1919,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {Component, Input} from '@angular/core';\nimport {NavigationItem} from './models/navigation-item';\n\n@Component({\n    selector: 'eni-navigation',\n    templateUrl: './navigation.component.html',\n    styleUrls: ['./navigation.component.scss']\n})\nexport class NavigationComponent {\n\n    @Input() navigation: NavigationItem[];\n}\n",
+            "sourceCode": "import {Component} from '@angular/core';\nimport {NavigationItem} from './models/navigation-item';\nimport {NavigationService} from './navigation.service';\n\n@Component({\n    selector: 'eni-navigation',\n    templateUrl: './navigation.component.html',\n    styleUrls: ['./navigation.component.scss']\n})\nexport class NavigationComponent {\n\n    navigation: NavigationItem[];\n\n    constructor(\n        private _navigationService: NavigationService\n    ) {\n        this.navigation = _navigationService.navigation;\n    }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1218,6 +1928,32 @@
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "_navigationService",
+                        "type": "NavigationService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "_navigationService",
+                        "type": "NavigationService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "templateData": "<div id=\"eniblockNavigation\" class=\"nav\">\n\n    <ng-container *ngFor=\"let item of navigation\">\n\n        <eni-nav-group *ngIf=\"item.type==='group'\" [item]=\"item\"></eni-nav-group>\n        <eni-nav-collapsable *ngIf=\"item.type==='collapsable'\"\n                             [item]=\"item\"></eni-nav-collapsable>\n        <eni-nav-item *ngIf=\"item.type==='item'\" [item]=\"item\"\n                      [ngClass]=\"item.classes\"></eni-nav-item>\n\n    </ng-container>\n\n</div>\n"
         },
         {
@@ -1567,6 +2303,94 @@
     ],
     "modules": [
         {
+            "name": "BackTitleModule",
+            "id": "module-BackTitleModule-9b413c7164f37339b2825f4a528267a79da2c60e937b4b8366516578335b934e17f59dfdeb304049da2d928d619b9d6023b5c70d4bb6837766b4796d85a57bfa",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/back-title/back-title.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {FlexModule} from '@angular/flex-layout';\nimport {MatIconModule} from '@angular/material/icon';\nimport {MatButtonModule} from '@angular/material/button';\nimport {RouterModule} from '@angular/router';\n\nimport {BackTitleComponent} from './back-title.component';\n\n@NgModule({\n    declarations: [\n        BackTitleComponent\n    ],\n    imports: [\n        CommonModule,\n        FlexModule,\n        MatIconModule,\n        MatButtonModule,\n        RouterModule\n    ],\n    exports: [BackTitleComponent]\n})\nexport class BackTitleModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BackTitleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BackTitleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CardModule",
+            "id": "module-CardModule-f8aec6475367e99218ff8ce331c5f636345eb78b241d84eb16d2ff4ce331222ad9340b7ab8a81417a3b40bb76463355dc87a30439f4ee01ca4a5dc348566e35c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/card/card.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {MatCardModule} from '@angular/material/card';\n\nimport {CardComponent} from './card.component';\n\n@NgModule({\n    declarations: [\n        CardComponent\n    ],\n    exports: [\n        CardComponent\n    ],\n    imports: [\n        CommonModule,\n        MatCardModule\n    ]\n})\nexport class CardModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "CardComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "CardComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "DataListModule",
             "id": "module-DataListModule-30057f1043e6639422170ff3c9b4dbbc9bf5520d2a334cab8908a6459a4f0d0ffdef650c0d6874e9a289364b7a4acb2db40e37b07fcd8715d7d238103557ff3d",
             "description": "",
@@ -1621,6 +2445,56 @@
                         },
                         {
                             "name": "EniDataValue"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "FileImportModule",
+            "id": "module-FileImportModule-e225fa516be150725d4422f1e98fd70ced5dc5758ae58995e239dffba3c25e0d31728613a4b86530a4467796b91e44b6b09c1844da5610f8fc91cd26a06d4680",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/eniblock/file-import/file-import.module.ts",
+            "methods": [],
+            "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {FlexModule} from '@angular/flex-layout';\nimport {MatIconModule} from '@angular/material/icon';\n\nimport {FileImportComponent} from './file-import.component';\nimport {DragDropDirective} from './drag-drop.directive';\n\n@NgModule({\n    declarations: [\n        FileImportComponent,\n        DragDropDirective\n    ],\n    imports: [\n        CommonModule,\n        FlexModule,\n        MatIconModule\n    ],\n    providers: [\n        DragDropDirective\n    ],\n    exports: [\n        FileImportComponent,\n        DragDropDirective\n    ]\n})\nexport class FileImportModule {\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DragDropDirective"
+                        },
+                        {
+                            "name": "FileImportComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DragDropDirective"
+                        },
+                        {
+                            "name": "FileImportComponent"
                         }
                     ]
                 },
@@ -1744,7 +2618,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/data-list/data-list.stories.ts",
+                "file": "stories/back-title/back-title.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1771,14 +2645,24 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Template",
+                "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/data-list/data-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<DataListComponent>",
-                "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/back-title/back-title.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<BackTitleComponent>",
+                "defaultValue": "(args: BackTitleComponent) => ({\n    props: args,\n    template: `<eni-back-title><h1>Title</h1></eni-back-title>`\n})"
             },
             {
                 "name": "Template",
@@ -1799,18 +2683,28 @@
                 "deprecationMessage": "",
                 "type": "Story<NavigationComponent>",
                 "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/data-list/data-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DataListComponent>",
+                "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "stories/data-list/data-list.stories.ts": [
+            "stories/back-title/back-title.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/data-list/data-list.stories.ts",
+                    "file": "stories/back-title/back-title.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -1820,11 +2714,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/data-list/data-list.stories.ts",
+                    "file": "stories/back-title/back-title.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<DataListComponent>",
-                    "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+                    "type": "Story<BackTitleComponent>",
+                    "defaultValue": "(args: BackTitleComponent) => ({\n    props: args,\n    template: `<eni-back-title><h1>Title</h1></eni-back-title>`\n})"
                 }
             ],
             "stories/layout/layout.stories.ts": [
@@ -1870,6 +2764,28 @@
                     "type": "Story<NavigationComponent>",
                     "defaultValue": "(args: NavigationComponent) => ({\n    props: args\n})"
                 }
+            ],
+            "stories/data-list/data-list.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/data-list/data-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DataListComponent>",
+                    "defaultValue": "(args: DataListComponent) => ({\n    props: args,\n    template: `\n    <eni-data-list>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST</span>\n                <span eni-data-value>value</span>\n            </div>\n            <div eni-data>\n                <span eni-data-key>TEST 2</span>\n                <span eni-data-value>value 2</span>\n            </div>\n        </eni-data-block>\n        <eni-data-block>\n            <div eni-data>\n                <span eni-data-key>TEST 3</span>\n                <span eni-data-value>value 3</span>\n            </div>\n        </eni-data-block>\n    </eni-data-list>`\n})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -1878,9 +2794,27 @@
     },
     "routes": [],
     "coverage": {
-        "count": 2,
+        "count": 1,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/eniblock/back-title/back-title.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BackTitleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
             {
                 "filePath": "projects/eniblock/data-list/data-block/data-block.component.ts",
                 "type": "component",
@@ -1924,6 +2858,24 @@
                 "name": "DataListComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/file-import/drag-drop.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "DragDropDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/file-import/file-import.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FileImportComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -2004,7 +2956,16 @@
                 "linktype": "component",
                 "name": "NavigationComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/eniblock/navigation/navigation.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "NavigationService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -2012,6 +2973,26 @@
                 "type": "class",
                 "linktype": "classe",
                 "name": "Eniblock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/back-title/back-title.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/back-title/back-title.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
