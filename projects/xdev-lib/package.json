@@ -1,5 +1,5 @@
 {
-  "name": "@the-blockchain-xdev/xdev-lib",
+  "name": "@eniblock/xdev-lib",
   "version": "0.0.10",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
@@ -7,6 +7,6 @@
     "tslib": "^1.10.0"
   },
   "publishConfig": {
-    "@the-blockchain-xdev:registry": "https://gitlab.com/api/v4/projects/19142682/packages/npm/"
+    "@eniblock:registry": "https://npm.pkg.github.com"
   }
 }
